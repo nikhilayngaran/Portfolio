@@ -28,112 +28,121 @@ export default function WorkModal({
     <>
       {/* Backdrop */}
       <motion.div
-        className="fixed inset-0 z-40 bg-black/80 backdrop-blur-sm"
+        className="fixed inset-0 z-40 bg-black/40"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         onClick={onClose}
       />
 
-      {/* Modal panel — slides up from bottom */}
+      {/* Modal */}
       <motion.div
-        className="fixed inset-x-0 bottom-0 top-[4vh] z-50 flex flex-col bg-[#0f0f0f] rounded-t-3xl overflow-hidden shadow-2xl"
+        className="fixed inset-x-0 bottom-0 top-[3vh] z-50 flex flex-col bg-[#f5f3ee] rounded-t-2xl overflow-hidden"
         initial={{ y: "100%" }}
         animate={{ y: 0 }}
         exit={{ y: "100%" }}
         transition={{ type: "spring", damping: 32, stiffness: 280 }}
       >
-        {/* Top accent bar */}
+        {/* Top accent line */}
         <div className="h-[3px] w-full shrink-0" style={{ backgroundColor: project.accent }} />
 
         {/* Sticky header */}
-        <div className="shrink-0 sticky top-0 z-10 bg-[#0f0f0f]/95 backdrop-blur-md border-b border-white/[0.06] px-6 md:px-12 py-5 flex items-center justify-between">
-          <div>
-            <p className="text-[12px] tracking-[0.3em] uppercase mb-1" style={{ color: project.accent }}>
-              {project.number} · Case Study
-            </p>
-            <h2 className="text-[22px] font-bold text-white tracking-tight">
-              {project.title}
-            </h2>
+        <div className="shrink-0 bg-[#f5f3ee] border-b border-black/10 px-8 md:px-16 py-5 flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            {project.clientLogo && (
+              <img
+                src={project.clientLogo}
+                alt={project.client}
+                className="h-6 w-auto object-contain opacity-70"
+              />
+            )}
+            <div>
+              <p className="text-[10px] tracking-[0.3em] uppercase text-black/35 mb-0.5">
+                {project.number} · Case Study
+              </p>
+              <h2 className="text-[22px] font-semibold text-black tracking-tight">
+                {project.title}
+              </h2>
+            </div>
           </div>
           <button
             onClick={onClose}
-            className="p-2.5 rounded-full border border-white/10 text-white/50 hover:text-white hover:border-white/30 transition-all duration-200"
+            className="p-2 rounded-full border border-black/15 text-black/40 hover:text-black hover:border-black/30 transition-all duration-200"
           >
-            <X size={18} />
+            <X size={16} />
           </button>
         </div>
 
         {/* Scrollable body */}
         <div className="overflow-y-auto flex-1">
-          <div className="max-w-3xl mx-auto px-6 md:px-12 py-12">
+          <div className="max-w-5xl mx-auto px-8 md:px-16 py-16">
 
-            {/* Client */}
-            <div className="flex items-center gap-5 mb-8 pl-4 border-l-2" style={{ borderColor: project.accent }}>
-              {project.clientLogo && (
-                <img
-                  src={project.clientLogo}
-                  alt={project.client.split("|")[0].trim()}
-                  className="h-8 w-auto object-contain opacity-60"
-                  style={{ filter: "brightness(0) invert(1)" }}
-                />
-              )}
-              <p className="text-sm text-white/50 leading-relaxed">{project.client}</p>
-            </div>
-
-            {/* Tags */}
-            <div className="flex flex-wrap gap-2 mb-14">
-              {project.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-xs px-3 py-1.5 rounded-full border border-white/10 text-white/50"
-                >
-                  {tag}
-                </span>
-              ))}
+            {/* Client + Tags row */}
+            <div className="flex flex-wrap items-start justify-between gap-6 mb-16 pb-10 border-b border-black/10">
+              <p className="text-[13px] text-black/50 leading-relaxed max-w-lg">
+                {project.client}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-[11px] px-3 py-1.5 rounded-full border border-black/15 text-black/50"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
 
             {/* Objective */}
-            <CaseSection label="Objective" accent={project.accent}>
-              <p className="text-white/70 leading-[1.85] text-[15px]">{project.objective}</p>
+            <CaseSection label="Objective">
+              <p className="text-[15px] text-black/70 leading-[1.9]">
+                {project.objective}
+              </p>
             </CaseSection>
 
             {/* Analysis */}
-            <CaseSection label="Analysis" accent={project.accent}>
-              <p className="text-white/70 leading-[1.85] text-[15px]">{project.analysis}</p>
+            <CaseSection label="Analysis">
+              <p className="text-[15px] text-black/70 leading-[1.9]">
+                {project.analysis}
+              </p>
             </CaseSection>
 
             {/* Recommendations */}
-            <CaseSection label="Recommendations" accent={project.accent}>
+            <CaseSection label="Recommendations">
               {project.recommendations.intro && (
-                <p className="text-white/40 text-sm mb-7 uppercase tracking-widest">
+                <p className="text-[11px] tracking-[0.25em] uppercase text-black/35 mb-8">
                   {project.recommendations.intro}
                 </p>
               )}
-              <div className="space-y-7">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {project.recommendations.pillars.map((pillar, idx) => (
-                  <div key={idx} className="pl-5 border-l border-white/[0.08]">
-                    <p className="font-semibold text-white text-[15px] mb-2">
-                      <span style={{ color: project.accentSecondary }}>{idx + 1}. </span>
+                  <div key={idx} className="border-t-2 border-black/10 pt-5" style={{ borderTopColor: idx < 2 ? project.accent + "66" : "rgba(0,0,0,0.1)" }}>
+                    <p className="text-[11px] tracking-widest uppercase text-black/35 mb-2">
+                      {String(idx + 1).padStart(2, "0")}
+                    </p>
+                    <p className="text-[15px] font-semibold text-black mb-3">
                       {pillar.title}
                     </p>
-                    <p className="text-white/55 text-sm leading-relaxed">{pillar.body}</p>
+                    <p className="text-[13px] text-black/55 leading-relaxed">
+                      {pillar.body}
+                    </p>
                   </div>
                 ))}
               </div>
             </CaseSection>
 
             {/* Skills */}
-            <CaseSection label="Skills Demonstrated" accent={project.accent}>
-              <div className="flex flex-wrap gap-2">
+            <CaseSection label="Skills Demonstrated">
+              <div className="flex flex-wrap gap-3">
                 {project.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="text-xs px-3 py-1.5 rounded-full font-medium"
+                    className="text-[12px] px-4 py-2 rounded-full font-medium"
                     style={{
-                      backgroundColor: project.accent + "22",
-                      color: project.accentSecondary,
-                      border: `1px solid ${project.accent}55`,
+                      backgroundColor: project.accent + "18",
+                      color: project.accent,
+                      border: `1px solid ${project.accent}40`,
                     }}
                   >
                     {skill}
@@ -151,19 +160,16 @@ export default function WorkModal({
 
 function CaseSection({
   label,
-  accent,
   children,
 }: {
   label: string
-  accent: string
   children: React.ReactNode
 }) {
   return (
-    <div className="mb-12">
-      <div className="flex items-center gap-3 mb-5">
-        <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: accent }} />
-        <p className="text-sm font-bold tracking-wide text-white">{label}</p>
-      </div>
+    <div className="mb-16">
+      <p className="text-[48px] font-bold uppercase text-black mb-6 leading-none">
+        {label}
+      </p>
       {children}
     </div>
   )
