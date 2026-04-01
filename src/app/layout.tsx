@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import "./globals.css";
+import CustomCursor from "@/components/CustomCursor";
 
 const serif = Cormorant_Garamond({
   subsets: ["latin"],
@@ -27,6 +28,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${serif.variable} ${sans.variable} antialiased`}>
+        <div className="grain-overlay" />
+        <CustomCursor />
         {children}
       </body>
     </html>

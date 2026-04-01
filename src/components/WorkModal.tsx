@@ -4,6 +4,7 @@ import { useEffect } from "react"
 import { motion } from "framer-motion"
 import { X } from "lucide-react"
 import { Project } from "@/data/projects"
+import { getProjectVisuals } from "@/components/visuals"
 
 export default function WorkModal({
   project,
@@ -12,6 +13,8 @@ export default function WorkModal({
   project: Project
   onClose: () => void
 }) {
+  const visuals = getProjectVisuals(project.id)
+
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose()
@@ -99,6 +102,7 @@ export default function WorkModal({
               <p className="text-[15px] text-black/70 leading-[1.9]">
                 {project.objective}
               </p>
+              {visuals.afterObjective}
             </CaseSection>
 
             {/* Analysis */}
@@ -106,30 +110,55 @@ export default function WorkModal({
               <p className="text-[15px] text-black/70 leading-[1.9]">
                 {project.analysis}
               </p>
+              {visuals.afterAnalysis}
             </CaseSection>
+
+            {/* Competition (optional) */}
+            {project.competition && (
+              <CaseSection label="Competition">
+                <p className="text-[15px] text-black/70 leading-[1.9]">
+                  {project.competition}
+                </p>
+                {visuals.afterCompetition}
+              </CaseSection>
+            )}
 
             {/* Recommendations */}
             <CaseSection label="Recommendations">
-              {project.recommendations.intro && (
-                <p className="text-[11px] tracking-[0.25em] uppercase text-black/35 mb-8">
-                  {project.recommendations.intro}
-                </p>
-              )}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {project.recommendations.pillars.map((pillar, idx) => (
-                  <div key={idx} className="border-t-2 border-black/10 pt-5" style={{ borderTopColor: idx < 2 ? project.accent + "66" : "rgba(0,0,0,0.1)" }}>
-                    <p className="text-[11px] tracking-widest uppercase text-black/35 mb-2">
-                      {String(idx + 1).padStart(2, "0")}
+              {visuals.replaceRecommendations ? (
+                visuals.replaceRecommendations
+              ) : (
+                <>
+                  {project.recommendations.intro && (
+                    <p className="text-[11px] tracking-[0.25em] uppercase text-black/35 mb-8">
+                      {project.recommendations.intro}
                     </p>
-                    <p className="text-[15px] font-semibold text-black mb-3">
-                      {pillar.title}
-                    </p>
-                    <p className="text-[13px] text-black/55 leading-relaxed">
-                      {pillar.body}
-                    </p>
+                  )}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {project.recommendations.pillars.map((pillar, idx) => (
+                      <div
+                        key={idx}
+                        className="border-t-2 pt-5"
+                        style={{
+                          borderTopColor:
+                            idx < 2 ? project.accent + "66" : "rgba(0,0,0,0.1)",
+                        }}
+                      >
+                        <p className="text-[11px] tracking-widest uppercase text-black/35 mb-2">
+                          {String(idx + 1).padStart(2, "0")}
+                        </p>
+                        <p className="text-[15px] font-semibold text-black mb-3">
+                          {pillar.title}
+                        </p>
+                        <p className="text-[13px] text-black/55 leading-relaxed">
+                          {pillar.body}
+                        </p>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
+                </>
+              )}
+              {visuals.afterRecommendations}
             </CaseSection>
 
             {/* Skills */}
@@ -139,11 +168,19 @@ export default function WorkModal({
                   <span
                     key={skill}
                     className="text-[12px] px-4 py-2 rounded-full font-medium"
-                    style={{
-                      backgroundColor: project.accent + "18",
-                      color: project.accent,
-                      border: `1px solid ${project.accent}40`,
-                    }}
+                    style={
+                      project.darkSkills
+                        ? {
+                            backgroundColor: project.accentSecondary,
+                            color: project.accent,
+                            border: `1px solid ${project.accent}60`,
+                          }
+                        : {
+                            backgroundColor: project.accent + "18",
+                            color: project.accent,
+                            border: `1px solid ${project.accent}40`,
+                          }
+                    }
                   >
                     {skill}
                   </span>
