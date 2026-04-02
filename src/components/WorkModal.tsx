@@ -113,7 +113,7 @@ export default function WorkModal({
             </div>
 
             {/* Objective */}
-            <CaseSection label="Objective" accent={project.accent} isDark={isDark} textMuted={textMuted}>
+            <CaseSection label="Objective" accent={project.accent} isDark={isDark}>
               <p className="text-[15px] leading-[1.9]" style={{ color: isDark ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.7)" }}>
                 {project.objective}
               </p>
@@ -121,7 +121,7 @@ export default function WorkModal({
             </CaseSection>
 
             {/* Analysis */}
-            <CaseSection label="Analysis" accent={project.accent} isDark={isDark} textMuted={textMuted}>
+            <CaseSection label="Analysis" accent={project.accent} isDark={isDark}>
               <p className="text-[15px] leading-[1.9]" style={{ color: isDark ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.7)" }}>
                 {project.analysis}
               </p>
@@ -130,7 +130,7 @@ export default function WorkModal({
 
             {/* Competition (optional) */}
             {project.competition && (
-              <CaseSection label="Competition" accent={project.accent} isDark={isDark} textMuted={textMuted}>
+              <CaseSection label="Competition" accent={project.accent} isDark={isDark}>
                 <p className="text-[15px] leading-[1.9]" style={{ color: isDark ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.7)" }}>
                   {project.competition}
                 </p>
@@ -139,7 +139,7 @@ export default function WorkModal({
             )}
 
             {/* Recommendations */}
-            <CaseSection label="Recommendations" accent={project.accent} isDark={isDark} textMuted={textMuted}>
+            <CaseSection label="Recommendations" accent={project.accent} isDark={isDark}>
               {visuals.replaceRecommendations ? (
                 visuals.replaceRecommendations
               ) : (
@@ -177,7 +177,7 @@ export default function WorkModal({
             </CaseSection>
 
             {/* Skills */}
-            <CaseSection label="Skills Demonstrated" accent={project.accent} isDark={isDark} textMuted={textMuted}>
+            <CaseSection label="Skills Demonstrated" accent={project.accent} isDark={isDark}>
               <div className="flex flex-wrap gap-3">
                 {project.skills.map((skill) => (
                   <span
@@ -215,13 +215,11 @@ function CaseSection({
   children,
   accent,
   isDark,
-  textMuted,
 }: {
   label: string
   children: React.ReactNode
   accent: string
   isDark: boolean
-  textMuted: string
 }) {
   return (
     <div className="mb-16">

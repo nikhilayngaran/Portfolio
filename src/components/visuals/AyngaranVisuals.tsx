@@ -3,7 +3,6 @@
 import { useRef, useState, useEffect } from "react"
 import { useInView } from "framer-motion"
 
-const NAVY = "#0F2147"
 const GOLD = "#C9A84C"
 const TEAL = "#5DD3C8"
 
