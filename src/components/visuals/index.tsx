@@ -1,11 +1,11 @@
 "use client"
 
 import {
-  LiziaSegmentationMatrix,
-  LiziaRevenueChart,
-  LiziaCompetitionMap,
-  LiziaStrategyCards,
-  LiziaLineExtension,
+  LiziaAfterObjectiveFull,
+  LiziaAfterAnalysisFull,
+  LiziaAfterCompetitionFull,
+  LiziaRecommendationsFull,
+  LiziaAfterRecommendationsFull,
 } from "./LiziaVisuals"
 
 import {
@@ -31,11 +31,11 @@ export type ProjectVisualSlots = {
 export function getProjectVisuals(id: string): ProjectVisualSlots {
   if (id === "light-the-way") {
     return {
-      afterObjective: <LiziaSegmentationMatrix />,
-      afterAnalysis: <LiziaRevenueChart />,
-      afterCompetition: <LiziaCompetitionMap />,
-      replaceRecommendations: <LiziaStrategyCards />,
-      afterRecommendations: <LiziaLineExtension />,
+      afterObjective: <LiziaAfterObjectiveFull />,
+      afterAnalysis: <LiziaAfterAnalysisFull />,
+      afterCompetition: <LiziaAfterCompetitionFull />,
+      replaceRecommendations: <LiziaRecommendationsFull />,
+      afterRecommendations: <LiziaAfterRecommendationsFull />,
     }
   }
   if (id === "board-to-scale") {
