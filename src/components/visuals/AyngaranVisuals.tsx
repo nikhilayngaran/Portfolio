@@ -339,29 +339,108 @@ export function AyngaranColorPalette() {
 
 // ─── Visual 4: Brand Values ───────────────────────────────────────────────────
 
-const VALUES = [
+function IconObstacleRemoval() {
+  return (
+    <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke={GOLD} strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+      {/* Path opening up — two diverging curves with a gap in the centre */}
+      <path d="M4 22 C8 22 10 10 16 10 C22 10 24 22 28 22" opacity="0.35" />
+      {/* Bold clear central path */}
+      <path d="M10 26 L16 14 L22 26" />
+      {/* Barrier struck through */}
+      <line x1="8" y1="18" x2="24" y2="18" strokeDasharray="2.5 2" opacity="0.5" />
+      {/* Opening gap mark */}
+      <line x1="14" y1="18" x2="18" y2="18" stroke={GOLD} strokeWidth="2.2" />
+    </svg>
+  )
+}
+
+function IconNewBeginnings() {
+  return (
+    <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke={GOLD} strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+      {/* Horizon line */}
+      <line x1="4" y1="22" x2="28" y2="22" opacity="0.3" />
+      {/* Rising sun arc */}
+      <path d="M8 22 A8 8 0 0 1 24 22" />
+      {/* Centre ray */}
+      <line x1="16" y1="22" x2="16" y2="10" />
+      {/* Side rays */}
+      <line x1="16" y1="10" x2="13" y2="13" opacity="0.5" />
+      <line x1="16" y1="10" x2="19" y2="13" opacity="0.5" />
+      <line x1="8" y1="14" x2="10.5" y2="16" opacity="0.4" />
+      <line x1="24" y1="14" x2="21.5" y2="16" opacity="0.4" />
+    </svg>
+  )
+}
+
+function IconWisdom() {
+  return (
+    <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke={GOLD} strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+      {/* Open book spine */}
+      <line x1="16" y1="9" x2="16" y2="24" />
+      {/* Left page */}
+      <path d="M16 9 C12 9 7 11 7 14 L7 24 C7 24 11 22 16 24" />
+      {/* Right page */}
+      <path d="M16 9 C20 9 25 11 25 14 L25 24 C25 24 21 22 16 24" />
+      {/* Pen nib — Ganesha's broken tusk */}
+      <path d="M21 7 L23 5 L24 7 L22 9" opacity="0.7" />
+    </svg>
+  )
+}
+
+function IconIntelligence() {
+  return (
+    <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke={GOLD} strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+      {/* Diamond / crystal facets */}
+      <polygon points="16,6 26,14 16,26 6,14" />
+      <line x1="6" y1="14" x2="26" y2="14" opacity="0.4" />
+      <line x1="16" y1="6" x2="26" y2="14" opacity="0.6" />
+      <line x1="16" y1="6" x2="6" y2="14" opacity="0.6" />
+      <line x1="16" y1="6" x2="16" y2="14" opacity="0.3" />
+      <line x1="11" y1="14" x2="16" y2="26" opacity="0.4" />
+      <line x1="21" y1="14" x2="16" y2="26" opacity="0.4" />
+    </svg>
+  )
+}
+
+function IconGoodFortune() {
+  return (
+    <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke={GOLD} strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+      {/* Lotus — 5 petals */}
+      <path d="M16 22 C16 22 9 19 9 13 C9 10 12 8 14 10 C14 7 18 7 18 10 C20 8 23 10 23 13 C23 19 16 22 16 22Z" />
+      {/* Inner petal lines */}
+      <path d="M16 22 C16 22 13 17 13 13" opacity="0.4" />
+      <path d="M16 22 C16 22 19 17 19 13" opacity="0.4" />
+      {/* Stem */}
+      <line x1="16" y1="22" x2="16" y2="27" />
+      {/* Water line */}
+      <path d="M10 27 Q13 25 16 27 Q19 29 22 27" opacity="0.35" />
+    </svg>
+  )
+}
+
+const VALUES: { icon: React.ReactNode; title: string; body: string }[] = [
   {
-    icon: "🐘",
+    icon: <IconObstacleRemoval />,
     title: "Obstacle Removal",
     body: "Ganesha is the remover of obstacles — the first deity invoked before any new venture. Ayngaran promises the same.",
   },
   {
-    icon: "🌱",
+    icon: <IconNewBeginnings />,
     title: "New Beginnings",
     body: "Every engagement starts with a clean slate. The brand signals fresh thinking, not inherited convention.",
   },
   {
-    icon: "📖",
+    icon: <IconWisdom />,
     title: "Wisdom",
     body: "Ganesha carries both a pen and a broken tusk — the tools of knowledge, even at personal cost.",
   },
   {
-    icon: "⚡",
+    icon: <IconIntelligence />,
     title: "Intelligence",
     body: "Pattern recognition, structural clarity, and the ability to see around corners — encoded in the mark itself.",
   },
   {
-    icon: "✦",
+    icon: <IconGoodFortune />,
     title: "Good Fortune",
     body: "The elephant is an ancient symbol of prosperity and blessing. The brand carries this forward deliberately.",
   },
@@ -375,25 +454,25 @@ export function AyngaranBrandValues() {
       </p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {VALUES.slice(0, 3).map((v) => (
-          <ValueCard key={v.title} {...v} />
+          <ValueCard key={v.title} icon={v.icon} title={v.title} body={v.body} />
         ))}
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
         {VALUES.slice(3).map((v) => (
-          <ValueCard key={v.title} {...v} />
+          <ValueCard key={v.title} icon={v.icon} title={v.title} body={v.body} />
         ))}
       </div>
     </div>
   )
 }
 
-function ValueCard({ icon, title, body }: { icon: string; title: string; body: string }) {
+function ValueCard({ icon, title, body }: { icon: React.ReactNode; title: string; body: string }) {
   return (
     <div
       className="rounded-xl p-5 border"
       style={{ backgroundColor: `${GOLD}08`, borderColor: `${GOLD}20` }}
     >
-      <div className="text-2xl mb-3">{icon}</div>
+      <div className="mb-4 opacity-80">{icon}</div>
       <p className="text-[13px] font-semibold mb-2" style={{ color: GOLD }}>
         {title}
       </p>
