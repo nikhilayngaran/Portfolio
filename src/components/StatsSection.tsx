@@ -6,8 +6,7 @@ import { motion, useInView } from "framer-motion"
 const stats = [
   { value: 1,   suffix: "",   label: "Brand built from scratch" },
   { value: 2,   suffix: "+",  label: "Years of experience" },
-  { value: 500, suffix: "+",  label: "Community members" },
-  { value: 4,   suffix: "",   label: "Countries lived & worked" },
+  { value: 2,   suffix: "+",  label: "Countries lived & worked" },
 ]
 
 function AnimatedNumber({ value, suffix }: { value: number; suffix: string }) {
