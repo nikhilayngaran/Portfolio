@@ -26,6 +26,12 @@ import {
   AyngaranRecommendationsFull,
 } from "./AyngaranVisuals"
 
+import {
+  PassengerAfterAnalysisFull,
+  PassengerRecommendationsFull,
+  PassengerAfterRecommendationsFull,
+} from "./PassengerVisuals"
+
 export type ProjectVisualSlots = {
   afterObjective?: React.ReactNode
   afterAnalysis?: React.ReactNode
@@ -63,6 +69,13 @@ export function getProjectVisuals(id: string): ProjectVisualSlots {
       afterObjective: <AyngaranAfterObjectiveFull />,
       afterAnalysis: <AyngaranAfterAnalysisFull />,
       replaceRecommendations: <AyngaranRecommendationsFull />,
+    }
+  }
+  if (id === "carry-the-story") {
+    return {
+      afterAnalysis: <PassengerAfterAnalysisFull />,
+      replaceRecommendations: <PassengerRecommendationsFull />,
+      afterRecommendations: <PassengerAfterRecommendationsFull />,
     }
   }
   return {}
