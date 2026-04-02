@@ -27,6 +27,14 @@ export default function WorkModal({
     }
   }, [onClose])
 
+  const isDark = project.modalDark === true
+  const modalBg = project.modalBg ?? "#f5f3ee"
+  const textPrimary = isDark ? "rgba(255,255,255,0.9)" : "rgba(0,0,0,0.85)"
+  const textSecondary = isDark ? "rgba(255,255,255,0.5)" : "rgba(0,0,0,0.5)"
+  const textMuted = isDark ? "rgba(255,255,255,0.3)" : "rgba(0,0,0,0.35)"
+  const borderColor = isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.1)"
+  const headerBg = isDark ? (project.modalBg ?? "#0F2147") : "#f5f3ee"
+
   return (
     <>
       {/* Backdrop */}
@@ -40,7 +48,8 @@ export default function WorkModal({
 
       {/* Modal */}
       <motion.div
-        className="fixed inset-x-0 bottom-0 top-[3vh] z-50 flex flex-col bg-[#f5f3ee] rounded-t-2xl overflow-hidden"
+        className="fixed inset-x-0 bottom-0 top-[3vh] z-50 flex flex-col rounded-t-2xl overflow-hidden"
+        style={{ backgroundColor: modalBg }}
         initial={{ y: "100%" }}
         animate={{ y: 0 }}
         exit={{ y: "100%" }}
@@ -50,27 +59,32 @@ export default function WorkModal({
         <div className="h-[3px] w-full shrink-0" style={{ backgroundColor: project.accent }} />
 
         {/* Sticky header */}
-        <div className="shrink-0 bg-[#f5f3ee] border-b border-black/10 px-8 md:px-16 py-5 flex items-center justify-between">
+        <div
+          className="shrink-0 border-b px-8 md:px-16 py-5 flex items-center justify-between"
+          style={{ backgroundColor: headerBg, borderColor }}
+        >
           <div className="flex items-center gap-4">
             {project.clientLogo && (
               <img
                 src={project.clientLogo}
                 alt={project.client}
                 className="h-6 w-auto object-contain opacity-70"
+                style={isDark ? { filter: "brightness(0) invert(1)" } : undefined}
               />
             )}
             <div>
-              <p className="text-[10px] tracking-[0.3em] uppercase text-black/35 mb-0.5">
+              <p className="text-[10px] tracking-[0.3em] uppercase mb-0.5" style={{ color: textMuted }}>
                 {project.number} · Case Study
               </p>
-              <h2 className="text-[22px] font-semibold text-black tracking-tight">
+              <h2 className="text-[22px] font-semibold tracking-tight" style={{ color: textPrimary }}>
                 {project.title}
               </h2>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-2 rounded-full border border-black/15 text-black/40 hover:text-black hover:border-black/30 transition-all duration-200"
+            className="p-2 rounded-full border transition-all duration-200"
+            style={{ borderColor, color: textSecondary }}
           >
             <X size={16} />
           </button>
@@ -81,15 +95,16 @@ export default function WorkModal({
           <div className="max-w-5xl mx-auto px-8 md:px-16 py-16">
 
             {/* Client + Tags row */}
-            <div className="flex flex-wrap items-start justify-between gap-6 mb-16 pb-10 border-b border-black/10">
-              <p className="text-[13px] text-black/50 leading-relaxed max-w-lg">
+            <div className="flex flex-wrap items-start justify-between gap-6 mb-16 pb-10 border-b" style={{ borderColor }}>
+              <p className="text-[13px] leading-relaxed max-w-lg" style={{ color: textSecondary }}>
                 {project.client}
               </p>
               <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="text-[11px] px-3 py-1.5 rounded-full border border-black/15 text-black/50"
+                    className="text-[11px] px-3 py-1.5 rounded-full border"
+                    style={{ borderColor, color: textSecondary }}
                   >
                     {tag}
                   </span>
@@ -98,16 +113,16 @@ export default function WorkModal({
             </div>
 
             {/* Objective */}
-            <CaseSection label="Objective">
-              <p className="text-[15px] text-black/70 leading-[1.9]">
+            <CaseSection label="Objective" accent={project.accent} isDark={isDark} textMuted={textMuted}>
+              <p className="text-[15px] leading-[1.9]" style={{ color: isDark ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.7)" }}>
                 {project.objective}
               </p>
               {visuals.afterObjective}
             </CaseSection>
 
             {/* Analysis */}
-            <CaseSection label="Analysis">
-              <p className="text-[15px] text-black/70 leading-[1.9]">
+            <CaseSection label="Analysis" accent={project.accent} isDark={isDark} textMuted={textMuted}>
+              <p className="text-[15px] leading-[1.9]" style={{ color: isDark ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.7)" }}>
                 {project.analysis}
               </p>
               {visuals.afterAnalysis}
@@ -115,8 +130,8 @@ export default function WorkModal({
 
             {/* Competition (optional) */}
             {project.competition && (
-              <CaseSection label="Competition">
-                <p className="text-[15px] text-black/70 leading-[1.9]">
+              <CaseSection label="Competition" accent={project.accent} isDark={isDark} textMuted={textMuted}>
+                <p className="text-[15px] leading-[1.9]" style={{ color: isDark ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.7)" }}>
                   {project.competition}
                 </p>
                 {visuals.afterCompetition}
@@ -124,13 +139,13 @@ export default function WorkModal({
             )}
 
             {/* Recommendations */}
-            <CaseSection label="Recommendations">
+            <CaseSection label="Recommendations" accent={project.accent} isDark={isDark} textMuted={textMuted}>
               {visuals.replaceRecommendations ? (
                 visuals.replaceRecommendations
               ) : (
                 <>
                   {project.recommendations.intro && (
-                    <p className="text-[11px] tracking-[0.25em] uppercase text-black/35 mb-8">
+                    <p className="text-[11px] tracking-[0.25em] uppercase mb-8" style={{ color: textMuted }}>
                       {project.recommendations.intro}
                     </p>
                   )}
@@ -141,16 +156,16 @@ export default function WorkModal({
                         className="border-t-2 pt-5"
                         style={{
                           borderTopColor:
-                            idx < 2 ? project.accent + "66" : "rgba(0,0,0,0.1)",
+                            idx < 2 ? project.accent + "66" : borderColor,
                         }}
                       >
-                        <p className="text-[11px] tracking-widest uppercase text-black/35 mb-2">
+                        <p className="text-[11px] tracking-widest uppercase mb-2" style={{ color: textMuted }}>
                           {String(idx + 1).padStart(2, "0")}
                         </p>
-                        <p className="text-[15px] font-semibold text-black mb-3">
+                        <p className="text-[15px] font-semibold mb-3" style={{ color: textPrimary }}>
                           {pillar.title}
                         </p>
-                        <p className="text-[13px] text-black/55 leading-relaxed">
+                        <p className="text-[13px] leading-relaxed" style={{ color: textSecondary }}>
                           {pillar.body}
                         </p>
                       </div>
@@ -162,7 +177,7 @@ export default function WorkModal({
             </CaseSection>
 
             {/* Skills */}
-            <CaseSection label="Skills Demonstrated">
+            <CaseSection label="Skills Demonstrated" accent={project.accent} isDark={isDark} textMuted={textMuted}>
               <div className="flex flex-wrap gap-3">
                 {project.skills.map((skill) => (
                   <span
@@ -198,13 +213,22 @@ export default function WorkModal({
 function CaseSection({
   label,
   children,
+  accent,
+  isDark,
+  textMuted,
 }: {
   label: string
   children: React.ReactNode
+  accent: string
+  isDark: boolean
+  textMuted: string
 }) {
   return (
     <div className="mb-16">
-      <p className="text-[48px] font-bold uppercase text-black mb-6 leading-none">
+      <p
+        className="text-[48px] font-bold uppercase mb-6 leading-none"
+        style={{ color: isDark ? accent : "rgba(0,0,0,0.85)" }}
+      >
         {label}
       </p>
       {children}

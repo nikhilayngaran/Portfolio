@@ -13,6 +13,8 @@ export type Project = {
   accent: string
   accentSecondary: string
   darkSkills?: boolean
+  modalDark?: boolean
+  modalBg?: string
   objective: string
   analysis: string
   competition?: string
@@ -142,6 +144,47 @@ export const projects: Project[] = [
       "Product Strategy",
       "Brand Positioning",
       "Strategic Prioritisation",
+    ],
+  },
+  {
+    id: "first-always",
+    number: "04",
+    title: "First. Always.",
+    client: "Ayngaran Consultancy Services | Brand Identity Commission | Logo Design & Brand Strategy",
+    clientLogo: "/logos/ayngaran.png",
+    tags: ["Brand Identity", "Logo Design", "Visual Strategy", "Typography", "Brand Architecture"],
+    accent: "#C9A84C",
+    accentSecondary: "#0F2147",
+    darkSkills: true,
+    modalDark: true,
+    modalBg: "#0F2147",
+    objective: `Ayngaran Consultancy Services required a brand identity that could do something rare: encode centuries of cultural meaning into a single, modern mark — without it feeling like costume or cliché. The company's name derives from "Ayngaran," the Tamil word for Ganesha — the elephant-headed deity revered as the remover of obstacles, the patron of new beginnings, and the god of wisdom and intellect. These are not incidental attributes. They are the exact qualities a consulting firm promises its clients.\n\nThe brief was to create a visual identity capable of speaking simultaneously to a global corporate audience and to a Tamil cultural heritage — without compromising either. The mark needed to function as a professional logo, a cultural statement, and a strategic proof point all at once.`,
+    analysis: `The central challenge was representation without decoration. The risk in culturally derived logos is falling into illustration — adding a literal elephant, using traditional motifs as surface texture, or producing something that reads as "ethnic branding" rather than strategic identity.\n\nThe breakthrough came from reframing the question. Instead of asking "how do we represent Ganesha?" the design process asked: "what does the letter A look like when it carries the structural memory of an elephant?" Ganesha's silhouette — the triangular torso, the large ears extending outward, the downward-curving trunk — maps almost precisely onto the geometry of an uppercase A. The crossbar becomes the trunk. The apex becomes the crown. The counter spaces become the ears.\n\nThis structural correspondence is not forced. It emerges from the letterform itself when you know where to look — which is exactly the point. The best hidden logos work not because the shape was hidden, but because the meaning was always there.`,
+    recommendations: {
+      intro: "Three principles guided every decision in the identity system:",
+      pillars: [
+        {
+          title: "Encode, Don't Illustrate",
+          body: "The elephant is not drawn — it is embedded in the geometry of the letterform. This distinction separates a strategic mark from a decorative one.",
+        },
+        {
+          title: "Earn Both Audiences",
+          body: "The mark reads as a clean, modern logotype to those unfamiliar with the cultural reference. To those who know Ganesha, it reveals itself immediately. Neither reading is wrong.",
+        },
+        {
+          title: "Let the Name Do the Work",
+          body: "The wordmark 'AYNGARAN' is set in a refined geometric serif — confident, unhurried, built for longevity. The A is the anchor. The rest follows.",
+        },
+      ],
+    },
+    skills: [
+      "Brand Identity Design",
+      "Logo Design",
+      "Cultural Strategy",
+      "Typography",
+      "Visual Semiotics",
+      "Brand Architecture",
+      "Strategic Positioning",
     ],
   },
 ]

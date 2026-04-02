@@ -20,6 +20,12 @@ import {
   OneBoardAfterRecommendations,
 } from "./OneBoardVisuals"
 
+import {
+  AyngaranAfterObjectiveFull,
+  AyngaranAfterAnalysisFull,
+  AyngaranRecommendationsFull,
+} from "./AyngaranVisuals"
+
 export type ProjectVisualSlots = {
   afterObjective?: React.ReactNode
   afterAnalysis?: React.ReactNode
@@ -50,6 +56,13 @@ export function getProjectVisuals(id: string): ProjectVisualSlots {
       afterAnalysis: <LindtCarbonAudit />,
       replaceRecommendations: <LindtPillarCards />,
       afterRecommendations: <LindtBenchmarkStrip />,
+    }
+  }
+  if (id === "first-always") {
+    return {
+      afterObjective: <AyngaranAfterObjectiveFull />,
+      afterAnalysis: <AyngaranAfterAnalysisFull />,
+      replaceRecommendations: <AyngaranRecommendationsFull />,
     }
   }
   return {}
