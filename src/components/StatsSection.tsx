@@ -74,7 +74,7 @@ export default function StatsSection() {
         </div>
 
         {/* Stats grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 border-t pt-16" style={{ borderColor: "var(--espresso)", borderTopColor: "rgba(28,16,8,0.15)" }}>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 border-t pt-16" style={{ borderColor: "var(--espresso)", borderTopColor: "rgba(28,16,8,0.15)" }}>
           {stats.map((stat, i) => (
             <motion.div
               key={stat.label}
