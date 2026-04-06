@@ -24,13 +24,13 @@ export default function ContactSection() {
         </motion.h2>
 
         <motion.p
-          className="text-lg md:text-xl max-w-2xl mx-auto mb-8"
+          className="text-lg md:text-xl max-w-xl mx-auto mb-12"
           style={{ color: "rgba(245,240,232,0.6)" }}
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          I'm a Brand Strategist and Creative Marketer with a background in design and innovation. I work at the intersection of strategy, storytelling, and culture, building brands that earn attention and communities that actually grow. Currently studying at Grenoble Ecole de Management. Open to a 4–6 month Marketing & Communications internship.
+          Open to brand strategy, marketing, and creative roles. Internships and freelance projects welcome.
         </motion.p>
 
         <motion.div
@@ -69,7 +69,7 @@ export default function ContactSection() {
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <MapPin className="w-4 h-4" />
-          <span>Paris, France · End-of-studies internship · Available from Summer 2026</span>
+          <span>Paris, France · Available from Summer 2026</span>
         </motion.div>
 
       </div>
