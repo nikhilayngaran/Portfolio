@@ -3,9 +3,9 @@
 import { motion, MotionValue, useTransform } from "framer-motion";
 
 export default function Overlay({ progress }: { progress: MotionValue<number> }) {
-  // Section 1: visible 0-0.08, fades out by 0.14
-  const opacity1 = useTransform(progress, [0, 0.08, 0.14], [1, 1, 0]);
-  const y1 = useTransform(progress, [0, 0.14], [0, -80]);
+  // Section 1: visible 0-0.06, fades out by 0.12 — fully gone well before sticky releases
+  const opacity1 = useTransform(progress, [0, 0.06, 0.12], [1, 1, 0]);
+  const y1 = useTransform(progress, [0, 0.12], [0, -60]);
 
   // Section 2: fades in 0.28-0.36, visible 0.36-0.46, fades out by 0.54
   const opacity2 = useTransform(progress, [0.28, 0.36, 0.46, 0.54], [0, 1, 1, 0]);
@@ -21,7 +21,7 @@ export default function Overlay({ progress }: { progress: MotionValue<number> })
         
         {/* Section 1 */}
         <motion.div
-          style={{ opacity: opacity1, y: y1 }}
+          style={{ opacity: opacity1, y: y1, willChange: "opacity, transform" }}
           className="absolute text-center flex flex-col items-center justify-center px-6"
         >
           <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tighter">

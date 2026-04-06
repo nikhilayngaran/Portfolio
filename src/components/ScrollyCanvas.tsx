@@ -106,11 +106,16 @@ export default function ScrollyCanvas() {
 
   return (
     <section ref={containerRef} className="relative h-[500vh] bg-[#121212]">
-      <div className="sticky top-0 h-screen w-full overflow-hidden bg-black">
-        <canvas
-          ref={canvasRef}
-          className="block w-full h-full"
-        />
+      {/* overflow-hidden is on the inner canvas wrapper, NOT on the sticky div.
+          Putting overflow-hidden directly on a sticky element breaks position:sticky
+          on iOS Safari, causing the overlay to appear fixed above all content. */}
+      <div className="sticky top-0 h-screen w-full">
+        <div className="absolute inset-0 overflow-hidden bg-black">
+          <canvas
+            ref={canvasRef}
+            className="block w-full h-full"
+          />
+        </div>
         {/* Parallax Overlay */}
         <Overlay progress={scrollYProgress} />
       </div>
