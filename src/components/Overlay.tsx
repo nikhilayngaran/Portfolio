@@ -21,7 +21,7 @@ export default function Overlay({ progress }: { progress: MotionValue<number> })
         
         {/* Section 1 */}
         <motion.div
-          style={{ opacity: opacity1, y: y1, willChange: "opacity, transform" }}
+          style={{ opacity: opacity1, y: y1 }}
           className="absolute text-center flex flex-col items-center justify-center px-6"
         >
           <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tighter">
