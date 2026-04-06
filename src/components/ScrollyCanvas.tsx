@@ -16,7 +16,7 @@ export default function ScrollyCanvas() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [images, setImages] = useState<HTMLImageElement[]>([]);
 
-  // Manual MotionValue for scroll progress — avoids Framer Motion's useScroll
+  // Manual MotionValue for scroll progress : avoids Framer Motion's useScroll
   // target-based tracking which mis-fires on Safari/iOS and causes sections
   // to show incorrect opacity values (sections overlapping each other).
   const heroProgress = useMotionValue(0);
@@ -94,7 +94,7 @@ export default function ScrollyCanvas() {
     requestAnimationFrame(() => renderFrame(frameIndex));
   });
 
-  // Handle resize — redraw at correct frame
+  // Handle resize : redraw at correct frame
   useEffect(() => {
     const handleResize = () => {
       if (canvasRef.current) {
@@ -115,7 +115,7 @@ export default function ScrollyCanvas() {
 
   return (
     <section ref={containerRef} className="relative h-[500vh] bg-[#121212]">
-      {/* overflow-hidden on the inner wrapper only — not on the sticky div.
+      {/* overflow-hidden on the inner wrapper only : not on the sticky div.
           overflow-hidden on a sticky element breaks position:sticky on Safari. */}
       <div className="sticky top-0 h-screen w-full">
         <div className="absolute inset-0 overflow-hidden bg-black">

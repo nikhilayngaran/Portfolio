@@ -66,7 +66,7 @@ export default function StatsSection() {
           >
             <p className="text-lg leading-relaxed" style={{ color: "var(--espresso)", opacity: 0.75 }}>
               I'm a Brand Strategist and Creative Marketer with a background in design and innovation.
-              I work at the intersection of strategy, storytelling, and culture — building brands that
+              I work at the intersection of strategy, storytelling, and culture, building brands that
               earn attention and communities that actually grow. Currently studying at Grenoble Ecole de Management.
               Open to a 4–6 month Marketing & Communications internship.
             </p>

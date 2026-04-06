@@ -336,7 +336,7 @@ const recCards = [
     typeColor: "#BFFF00",
     icon: Megaphone,
     title: "Brand & Communication Strategy",
-    desc: "With investor interest in sustainable mobility peaking, OneBoard's weak digital presence is actively costing it credibility. Industrial mobility startups are not bought — they are trusted into.",
+    desc: "With investor interest in sustainable mobility peaking, OneBoard's weak digital presence is actively costing it credibility. Industrial mobility startups are not bought. They are trusted into.",
     actions: ["Website redesign", "Investor pitch deck", "Use-case content"],
   },
   {
@@ -354,7 +354,7 @@ const recCards = [
     typeColor: "#00B4A6",
     icon: Truck,
     title: "Last-Mile Domination",
-    desc: "OneBoard's architecture gives it a defensible advantage in sub-300kg urban cargo in ZFE-restricted city centres — territory cargo bikes cannot reliably serve at scale.",
+    desc: "OneBoard's architecture gives it a defensible advantage in sub-300kg urban cargo in ZFE-restricted city centres, territory cargo bikes cannot reliably serve at scale.",
     actions: ["Logistics pilot", "Cost-of-ownership data", "Investor evidence"],
   },
 ]

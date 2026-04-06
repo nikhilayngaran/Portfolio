@@ -17,7 +17,7 @@ const sans = DM_Sans({
 
 export const metadata: Metadata = {
   title: "Nikil Ayngaran Pandian",
-  description: "Creative Marketer — Portfolio",
+  description: "Creative Marketer | Portfolio",
 };
 
 export default function RootLayout({

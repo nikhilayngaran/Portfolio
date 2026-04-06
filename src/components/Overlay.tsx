@@ -3,7 +3,7 @@
 import { motion, MotionValue, useTransform } from "framer-motion";
 
 export default function Overlay({ progress }: { progress: MotionValue<number> }) {
-  // Section 1: visible 0-0.06, fades out by 0.12 — fully gone well before sticky releases
+  // Section 1: visible 0-0.06, fades out by 0.12 : fully gone well before sticky releases
   const opacity1 = useTransform(progress, [0, 0.06, 0.12], [1, 1, 0]);
   const y1 = useTransform(progress, [0, 0.12], [0, -60]);
 

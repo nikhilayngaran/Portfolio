@@ -131,7 +131,7 @@ export function PassengerSegmentationMatrix() {
         className="text-[10px] tracking-[0.35em] uppercase mb-5"
         style={{ color: `${GREEN}99` }}
       >
-        WHO — Five Segments Scored
+        WHO: Five Segments Scored
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-3">
@@ -262,7 +262,7 @@ export function PassengerInsightCard() {
           >
             Style Sharers face a specific tension. They want to be seen as adventurers but
             live predominantly urban lives. Passenger gives them permission to perform that
-            identity all the time — not just when they are in nature. The bag is a signal.
+            identity all the time, not just when they are in nature. The bag is a signal.
             It says something about who they are and who they are becoming, before they
             have even left the city.
           </p>
@@ -282,7 +282,7 @@ export function PassengerPositioningTable() {
     {
       icon: <Package size={18} />,
       label: "Description",
-      body: "Sustainably produced outdoor lifestyle bags in bold colorways for people who want their gear to reflect who they are — not just where they are going.",
+      body: "Sustainably produced outdoor lifestyle bags in bold colorways for people who want their gear to reflect who they are, not just where they are going.",
       extra: null as React.ReactNode,
     },
     {
@@ -318,7 +318,7 @@ export function PassengerPositioningTable() {
     {
       icon: <Zap size={18} />,
       label: "Point of Difference",
-      body: "Designed to be seen on trails and timelines — without costing the planet anything extra.",
+      body: "Designed to be seen on trails and timelines, without costing the planet anything extra.",
       extra: (
         <p
           className="text-[12px] font-semibold mt-3 px-3 py-2 rounded-lg"
@@ -342,7 +342,7 @@ export function PassengerPositioningTable() {
         className="text-[10px] tracking-[0.35em] uppercase mb-5"
         style={{ color: `${GREEN}99` }}
       >
-        WHAT — Brand Positioning
+        WHAT: Brand Positioning
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {cards.map((card, i) => (
@@ -387,7 +387,7 @@ export function PassengerPositioningTable() {
 const ACQUISITION_STAGES = [
   {
     stage: "Awareness",
-    tactic: "Evergreen organic content — nature-immersed product imagery, community hashtags",
+    tactic: "Evergreen organic content: nature-immersed product imagery and community hashtags",
     kpi: "Reach growth · Follower growth rate",
   },
   {
@@ -511,7 +511,7 @@ export function PassengerDualTrackFunnel() {
         className="text-[10px] tracking-[0.35em] uppercase mb-1"
         style={{ color: `${GREEN}99` }}
       >
-        HOW — Communication Funnel
+        HOW: Communication Funnel
       </p>
       <p
         className="text-[22px] font-bold mb-1"
@@ -592,7 +592,7 @@ export function PassengerContentPillars() {
         className="text-[10px] tracking-[0.35em] uppercase mb-5"
         style={{ color: `${GREEN}99` }}
       >
-        Content Strategy — Four Pillars
+        Content Strategy: Four Pillars
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {CONTENT_PILLARS.map((p, i) => (
@@ -873,7 +873,7 @@ export function PassengerTimeline() {
             className="text-[11px] shrink-0 text-center"
             style={{ color: `${GREEN}99` }}
           >
-            Loyalty Track — runs from Month 3, parallel to all phases
+            Loyalty Track: runs from Month 3, parallel to all phases
           </p>
           <div
             className="flex-1 h-[3px] rounded-full"

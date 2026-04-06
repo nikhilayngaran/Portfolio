@@ -129,7 +129,7 @@ export function LiziaSegmentationMatrix() {
         >
           <div className="w-1 self-stretch rounded-full shrink-0" style={{ backgroundColor: "#00B4A6" }} />
           <p className="text-[14px] font-semibold leading-relaxed" style={{ color: "#00B4A6" }}>
-            Target: Bedtime Readers — highest frequency, easiest to reach, most value-driven.
+            Target: Bedtime Readers. Highest frequency, easiest to reach, most value-driven.
           </p>
         </div>
       </FadeUp>
@@ -292,7 +292,7 @@ const strategies = [
     title: "Retail Placement (FMOT)",
     subtitle: "Start Here",
     priority: "Low investment · Fast return · No product dev needed",
-    desc: "A reader browsing the bestseller table who sees a Lizia display immediately adjacent is already primed — in physical-book mode, thinking about the reading experience, in a buying mindset. Counter-display placement converts discovery into purchase without requiring advertising spend.",
+    desc: "A reader browsing the bestseller table who sees a Lizia display immediately adjacent is already primed, in physical-book mode, thinking about the reading experience, in a buying mindset. Counter-display placement converts discovery into purchase without requiring advertising spend.",
     driver: 'Fixes the "I didn\'t know this existed" problem at zero media cost.',
     timeline: "Immediate",
   },
@@ -302,7 +302,7 @@ const strategies = [
     title: "Usage Occasion Marketing",
     subtitle: "Second",
     priority: "Medium investment · Emotional brand building",
-    desc: "A consumer who thinks \"always keep one in your current book\" owns multiple units simultaneously — one at home, one for travel, one as a gift. Usage occasion marketing creates this multi-unit behaviour by making each context feel distinct and worth equipping separately.",
+    desc: "A consumer who thinks \"always keep one in your current book\" owns multiple units simultaneously: one at home, one for travel, one as a gift. Usage occasion marketing creates this multi-unit behaviour by making each context feel distinct and worth equipping separately.",
     driver: "Transforms Lizia's addressable market from readers to everyone who buys gifts for readers.",
     timeline: "6–12 months",
   },
@@ -312,7 +312,7 @@ const strategies = [
     title: "Co-branding with Bestsellers",
     subtitle: "Third",
     priority: "Higher complexity · Maximum differentiation",
-    desc: "A Lizia designed in the visual language of a bestselling novel transforms the product from a reading accessory into a collector's object — differentiating through cultural relevance rather than product features.",
+    desc: "A Lizia designed in the visual language of a bestselling novel transforms the product from a reading accessory into a collector's object, differentiating through cultural relevance rather than product features.",
     driver: "Limited editions create urgency, bookstore placement captures highest-intent buyers, co-branding builds associations no Chinese competitor can replicate.",
     timeline: "12+ months",
   },
@@ -399,7 +399,7 @@ export function LiziaLineExtension() {
           <div className="flex-1 min-w-0">
             <p className="text-[11px] text-white/40 mb-2">Strategic Rationale</p>
             <p className="text-[13px] text-white/70 leading-relaxed">
-              Lizia currently has a single price point in a market ranging from €2 to €120. This leaves the brand exposed to downward price pressure with no premium capture. The Clip+ creates a two-tier architecture — the entry product stays accessible and volume-driven, the premium product captures higher-value buyers and anchors perception of the standard product as reasonable value.
+              Lizia currently has a single price point in a market ranging from €2 to €120. This leaves the brand exposed to downward price pressure with no premium capture. The Clip+ creates a two-tier architecture: the entry product stays accessible and volume-driven, the premium product captures higher-value buyers and anchors perception of the standard product as reasonable value.
             </p>
           </div>
           <div className="text-right shrink-0">
@@ -422,10 +422,10 @@ export function LiziaMarketContext() {
       <div className="mt-10 p-6 rounded-xl" style={{ backgroundColor: "rgba(0,180,166,0.05)", border: "1px solid rgba(0,180,166,0.15)" }}>
         <p className="text-[11px] tracking-[0.3em] uppercase mb-3" style={{ color: "#00B4A6" }}>Market Context</p>
         <p className="text-[14px] text-black/70 leading-relaxed mb-3">
-          France is one of Europe's strongest reading markets. Research indicates that 79% of French people read at least one book per year, with 92% having read a book in the past 12 months. This establishes a large and culturally embedded addressable market for reading accessories — but size alone does not determine opportunity. The question is which reader segment represents the most commercially attractive target for Lizia specifically.
+          France is one of Europe's strongest reading markets. Research indicates that 79% of French people read at least one book per year, with 92% having read a book in the past 12 months. This establishes a large and culturally embedded addressable market for reading accessories, but size alone does not determine opportunity. The question is which reader segment represents the most commercially attractive target for Lizia specifically.
         </p>
         <p className="text-[12px] text-black/40 leading-relaxed italic">
-          Note: The segmentation framework below is based on market reasoning and behavioural logic rather than primary research — it provides a structured basis for targeting decisions that should be validated with real customer data before full execution.
+          Note: The segmentation framework below is based on market reasoning and behavioural logic rather than primary research. It provides a structured basis for targeting decisions that should be validated with real customer data before full execution.
         </p>
       </div>
     </FadeUp>
@@ -448,13 +448,13 @@ export function WhyBedtimeReadersCallout() {
         <div className="px-6 pt-6 pb-4 border-b" style={{ borderColor: "#00B4A620" }}>
           <p className="text-[11px] tracking-[0.3em] uppercase mb-2" style={{ color: "#00B4A6" }}>Targeting Decision</p>
           <p className="text-white text-[17px] font-bold leading-snug">
-            Why Bedtime Readers — Not Elderly Readers
+            Why Bedtime Readers, Not Elderly Readers
           </p>
         </div>
 
         <div className="px-6 py-5">
           <p className="text-[13px] leading-relaxed mb-5" style={{ color: "rgba(255,255,255,0.55)" }}>
-            Elderly Readers are the largest segment at 40% of the market — but they present a significant channel mismatch. They are reached primarily through TV advertising and family recommendations: channels that are expensive and slow for a brand of Lizia's scale.
+            Elderly Readers are the largest segment at 40% of the market, but they present a significant channel mismatch. They are reached primarily through TV advertising and family recommendations: channels that are expensive and slow for a brand of Lizia's scale.
           </p>
 
           <p className="text-[11px] uppercase tracking-wider mb-3" style={{ color: "rgba(255,255,255,0.3)" }}>
@@ -535,7 +535,7 @@ export function LiziaStrategyIntro() {
   return (
     <FadeUp>
       <p className="text-[14px] text-black/60 leading-relaxed mb-8 max-w-2xl">
-        These three strategies are not equal alternatives presented for consideration. They are explicitly prioritised by investment level, complexity, and speed of return — sequenced to build momentum from quick wins before committing to higher-complexity plays.
+        These three strategies are not equal alternatives presented for consideration. They are explicitly prioritised by investment level, complexity, and speed of return, sequenced to build momentum from quick wins before committing to higher-complexity plays.
       </p>
     </FadeUp>
   )
@@ -590,7 +590,7 @@ export function LiziaSequencingTimeline() {
         </div>
 
         <div className="px-7 pb-7">
-          {/* Main track — desktop horizontal */}
+          {/* Main track: desktop horizontal */}
           <div className="hidden md:flex items-start gap-0 mb-6">
             {mainPhases.map((p, i) => (
               <div key={p.num} className="flex items-start flex-1">
@@ -624,7 +624,7 @@ export function LiziaSequencingTimeline() {
             ))}
           </div>
 
-          {/* Parallel track — desktop */}
+          {/* Parallel track: desktop */}
           <div className="hidden md:block border-t pt-5" style={{ borderColor: "#00B4A620" }}>
             <div className="flex items-center gap-4">
               <div

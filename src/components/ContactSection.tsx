@@ -30,7 +30,7 @@ export default function ContactSection() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Open to brand strategy, marketing, and creative roles — internships and freelance projects.
+          Open to brand strategy, marketing, and creative roles. Internships and freelance projects welcome.
         </motion.p>
 
         <motion.div

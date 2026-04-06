@@ -33,7 +33,7 @@ export function LindtCarbonAudit() {
           <p className="text-white text-[20px] font-bold">The Carbon Gap</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-0">
-          {/* Lindt — Bad */}
+          {/* Lindt: Bad */}
           <motion.div
             className="p-7"
             style={{ backgroundColor: "rgba(239,68,68,0.08)", borderTop: "3px solid #ef4444" }}
@@ -62,7 +62,7 @@ export function LindtCarbonAudit() {
             </div>
           </motion.div>
 
-          {/* L'Oréal — Good */}
+          {/* L'Oréal: Good */}
           <motion.div
             className="p-7"
             style={{ backgroundColor: "rgba(34,197,94,0.06)", borderTop: "3px solid #22c55e" }}
@@ -93,7 +93,7 @@ export function LindtCarbonAudit() {
         </div>
         <div className="px-7 py-4 border-t" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
           <p className="text-[13px]" style={{ color: "rgba(255,255,255,0.4)" }}>
-            11× more carbon per visit — a measurable, urgent, and fixable gap.
+            11x more carbon per visit: a measurable, urgent, and fixable gap.
           </p>
         </div>
       </div>
@@ -120,7 +120,7 @@ const pillars = [
     num: "03",
     icon: Lightbulb,
     title: "Intrapreneurial Mindset",
-    desc: "Annual hackathon for employees to pitch and pilot green marketing campaigns — drawing on benchmarks from Mars and Unilever's Sustainable Living Lab.",
+    desc: "Annual hackathon for employees to pitch and pilot green marketing campaigns, drawing on benchmarks from Mars and Unilever's Sustainable Living Lab.",
   },
   {
     num: "04",
@@ -171,13 +171,13 @@ const benchmarks = [
   {
     stat: "−30%",
     company: "L'Oréal",
-    desc: "carbon footprint reduction — shortlisted for Ad Net Zero Best Practice Award",
+    desc: "carbon footprint reduction, shortlisted for Ad Net Zero Best Practice Award",
     color: "#C9A84C",
   },
   {
     stat: "+60%",
     company: "Mars",
-    desc: "revenue growth alongside −8% carbon emissions — proving sustainability ≠ sacrifice",
+    desc: "revenue growth alongside -8% carbon emissions, proving sustainability does not mean sacrifice",
     color: "#22c55e",
   },
 ]

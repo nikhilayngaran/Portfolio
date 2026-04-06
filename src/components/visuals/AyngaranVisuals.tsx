@@ -35,11 +35,11 @@ export function AyngaranThreeLayerReveal() {
   return (
     <div ref={ref} className="mt-10 mb-2">
       <p className="text-[10px] tracking-[0.35em] uppercase mb-6" style={{ color: `${GOLD}70` }}>
-        The Hidden Mark — Three Layers
+        The Hidden Mark: Three Layers
       </p>
 
       <div className="flex flex-col md:flex-row gap-4 items-stretch">
-        {/* Stage 1 — The Mark */}
+        {/* Stage 1: The Mark */}
         <StageCard active={step >= 1} number="01" label="The Mark" sublabel="A clean, professional lockup">
           <div
             className="w-full rounded-xl overflow-hidden transition-all duration-700"
@@ -54,7 +54,7 @@ export function AyngaranThreeLayerReveal() {
           </div>
         </StageCard>
 
-        {/* Stage 2 — The Anatomy */}
+        {/* Stage 2: The Anatomy */}
         <StageCard active={step >= 2} number="02" label="The Anatomy" sublabel="Elephant geometry revealed">
           <div className="w-full relative">
             <img
@@ -66,7 +66,7 @@ export function AyngaranThreeLayerReveal() {
                 opacity: step >= 2 ? 1 : 0,
               }}
             />
-            {/* SVG annotation overlay — matches logo aspect ratio ~2.28:1 */}
+            {/* SVG annotation overlay: matches logo aspect ratio ~2.28:1 */}
             <svg
               viewBox="0 0 228 100"
               className="absolute inset-0 w-full h-full transition-all duration-700"
@@ -93,7 +93,7 @@ export function AyngaranThreeLayerReveal() {
           </div>
         </StageCard>
 
-        {/* Stage 3 — The Meaning */}
+        {/* Stage 3: The Meaning */}
         <StageCard active={step >= 3} number="03" label="The Meaning" sublabel="Ganesha, encoded">
           <div
             className="w-full rounded-xl overflow-hidden transition-all duration-700 relative"
@@ -189,13 +189,13 @@ export function AyngaranHiddenMeaning() {
       </p>
       <p className="text-[13px] leading-relaxed mb-6" style={{ color: `${GOLD}50` }}>
         The greatest brand marks encode meaning that reveals itself only when you know where to look.
-        This is not trickery — it is strategic depth.
+        This is not trickery. It is strategic depth.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <HiddenCard
           brand="FedEx"
           hidden="Arrow between E and x"
-          meaning="Speed and precision — hidden in plain sight"
+          meaning="Speed and precision, hidden in plain sight"
           isHighlight={false}
           visual={<FedExMark />}
         />
@@ -209,7 +209,7 @@ export function AyngaranHiddenMeaning() {
         <HiddenCard
           brand="Ayngaran"
           hidden="Elephant in the A"
-          meaning="Ganesha encoded — wisdom, strength, new beginnings"
+          meaning="Ganesha encoded: wisdom, strength, new beginnings"
           isHighlight={true}
           visual={
             <img
@@ -287,7 +287,7 @@ export function AyngaranColorPalette() {
     {
       name: "Deep Navy",
       hex: "#1A3A6B",
-      note: "Authority, trust, depth — primary brand colour",
+      note: "Authority, trust, depth. Primary brand colour",
       bg: "#1A3A6B",
     },
     {
@@ -299,13 +299,13 @@ export function AyngaranColorPalette() {
     {
       name: "Royal Blue",
       hex: "#2357B0",
-      note: "Elephant silhouette — vibrancy within restraint",
+      note: "Elephant silhouette: vibrancy within restraint",
       bg: "#2357B0",
     },
     {
       name: "Light Blue",
       hex: "#4A9BC4",
-      note: "Tagline, supporting text — approachable warmth",
+      note: "Tagline, supporting text. Approachable warmth",
       bg: "#4A9BC4",
     },
   ]
@@ -342,7 +342,7 @@ export function AyngaranColorPalette() {
 function IconObstacleRemoval() {
   return (
     <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke={GOLD} strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-      {/* Path opening up — two diverging curves with a gap in the centre */}
+      {/* Path opening up: two diverging curves with a gap in the centre */}
       <path d="M4 22 C8 22 10 10 16 10 C22 10 24 22 28 22" opacity="0.35" />
       {/* Bold clear central path */}
       <path d="M10 26 L16 14 L22 26" />
@@ -381,7 +381,7 @@ function IconWisdom() {
       <path d="M16 9 C12 9 7 11 7 14 L7 24 C7 24 11 22 16 24" />
       {/* Right page */}
       <path d="M16 9 C20 9 25 11 25 14 L25 24 C25 24 21 22 16 24" />
-      {/* Pen nib — Ganesha's broken tusk */}
+      {/* Pen nib: Ganesha's broken tusk */}
       <path d="M21 7 L23 5 L24 7 L22 9" opacity="0.7" />
     </svg>
   )
@@ -405,7 +405,7 @@ function IconIntelligence() {
 function IconGoodFortune() {
   return (
     <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke={GOLD} strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-      {/* Lotus — 5 petals */}
+      {/* Lotus: 5 petals */}
       <path d="M16 22 C16 22 9 19 9 13 C9 10 12 8 14 10 C14 7 18 7 18 10 C20 8 23 10 23 13 C23 19 16 22 16 22Z" />
       {/* Inner petal lines */}
       <path d="M16 22 C16 22 13 17 13 13" opacity="0.4" />
@@ -422,7 +422,7 @@ const VALUES: { icon: React.ReactNode; title: string; body: string }[] = [
   {
     icon: <IconObstacleRemoval />,
     title: "Obstacle Removal",
-    body: "Ganesha is the remover of obstacles — the first deity invoked before any new venture. Ayngaran promises the same.",
+    body: "Ganesha is the remover of obstacles, the first deity invoked before any new venture. Ayngaran promises the same.",
   },
   {
     icon: <IconNewBeginnings />,
@@ -432,12 +432,12 @@ const VALUES: { icon: React.ReactNode; title: string; body: string }[] = [
   {
     icon: <IconWisdom />,
     title: "Wisdom",
-    body: "Ganesha carries both a pen and a broken tusk — the tools of knowledge, even at personal cost.",
+    body: "Ganesha carries both a pen and a broken tusk: the tools of knowledge, even at personal cost.",
   },
   {
     icon: <IconIntelligence />,
     title: "Intelligence",
-    body: "Pattern recognition, structural clarity, and the ability to see around corners — encoded in the mark itself.",
+    body: "Pattern recognition, structural clarity, and the ability to see around corners, encoded in the mark itself.",
   },
   {
     icon: <IconGoodFortune />,
@@ -450,7 +450,7 @@ export function AyngaranBrandValues() {
   return (
     <div className="mt-8 mb-2">
       <p className="text-[10px] tracking-[0.35em] uppercase mb-5" style={{ color: `${GOLD}60` }}>
-        Brand Values — Encoded in the Name
+        Brand Values: Encoded in the Name
       </p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {VALUES.slice(0, 3).map((v) => (
