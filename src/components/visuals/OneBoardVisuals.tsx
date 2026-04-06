@@ -110,7 +110,7 @@ export function OneBoardSWOTMatrix() {
       <FadeUp delay={0.45}>
         <div
           className="mt-5 px-6 py-4 rounded-xl flex items-center gap-3"
-          style={{ backgroundColor: "#BFFF0012", border: "1px solid #BFFF0035" }}
+          style={{ backgroundColor: "#1a1a1a", border: "1px solid #BFFF0040" }}
         >
           <div className="w-1 self-stretch rounded-full shrink-0" style={{ backgroundColor: "#BFFF00" }} />
           <p className="text-[14px] font-semibold" style={{ color: "#BFFF00" }}>

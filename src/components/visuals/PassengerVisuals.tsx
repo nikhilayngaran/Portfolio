@@ -463,8 +463,8 @@ function FunnelTrack({
             <div
               className="rounded-xl p-4 h-full border"
               style={{
-                backgroundColor: "rgba(0,0,0,0.35)",
-                borderColor: `${labelColor}25`,
+                backgroundColor: ESPRESSO,
+                borderColor: `${labelColor}35`,
               }}
             >
               <p
