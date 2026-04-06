@@ -48,16 +48,16 @@ export default function Works() {
             >
               <button
                 onClick={() => setSelected(project)}
-                className="group w-full text-left border-b border-black/10 py-10 grid grid-cols-12 gap-6 items-start cursor-pointer hover:bg-black/[0.02] transition-colors duration-300 px-2 -mx-2 rounded-sm"
+                className="group w-full text-left border-b border-black/10 py-10 grid grid-cols-12 gap-6 items-center cursor-pointer hover:bg-black/[0.02] transition-colors duration-300 px-2 -mx-2 rounded-sm"
               >
                 {/* Number */}
-                <span className="col-span-1 text-[11px] text-black/30 tracking-widest pt-1 tabular-nums">
+                <span className="col-span-1 text-[11px] text-black/30 tracking-widest tabular-nums">
                   {project.number}
                 </span>
 
                 {/* Title + Client */}
-                <div className="col-span-7">
-                  <h3 className="text-[22px] font-semibold text-black tracking-tight mb-2 group-hover:text-black transition-colors">
+                <div className="col-span-6">
+                  <h3 className="text-[22px] font-semibold text-black tracking-tight mb-2">
                     {project.title}
                   </h3>
                   <p className="text-[13px] text-black/40 leading-relaxed">
@@ -65,8 +65,31 @@ export default function Works() {
                   </p>
                 </div>
 
+                {/* Logo — hidden by default, reveals on hover */}
+                <div className="col-span-2 flex items-center justify-center">
+                  {project.clientLogo ? (
+                    <div className="relative w-16 h-16 flex items-center justify-center">
+                      {/* Inverted state (default) */}
+                      <img
+                        src={project.clientLogo}
+                        alt={project.client}
+                        className="absolute inset-0 w-full h-full object-contain transition-all duration-500 ease-in-out opacity-20 grayscale group-hover:opacity-0"
+                        style={{ filter: "grayscale(1)" }}
+                      />
+                      {/* Color state (on hover) */}
+                      <img
+                        src={project.clientLogo}
+                        alt={project.client}
+                        className="absolute inset-0 w-full h-full object-contain transition-all duration-500 ease-in-out opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100"
+                      />
+                    </div>
+                  ) : (
+                    <div className="w-16 h-16" />
+                  )}
+                </div>
+
                 {/* Tags */}
-                <div className="col-span-4 flex flex-wrap gap-2 justify-end pt-1">
+                <div className="col-span-3 flex flex-wrap gap-2 justify-end">
                   {project.tags.slice(0, 3).map((tag) => (
                     <span
                       key={tag}
