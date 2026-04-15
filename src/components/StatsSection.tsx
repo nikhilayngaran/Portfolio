@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import { motion, useInView } from "framer-motion"
+import BrandStrategy from "./BrandStrategy"
 
 const stats = [
   { value: 1,   suffix: "",   label: "Brand built from scratch" },
@@ -72,6 +73,9 @@ export default function StatsSection() {
             </p>
           </motion.div>
         </div>
+
+        {/* Brand Strategy stepper */}
+        <BrandStrategy />
 
         {/* Stats grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 border-t pt-16" style={{ borderColor: "var(--espresso)", borderTopColor: "rgba(28,16,8,0.15)" }}>

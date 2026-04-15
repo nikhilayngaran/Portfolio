@@ -19,6 +19,7 @@ const config: Config = {
         espresso: "var(--espresso)",
         "burnt-orange": "var(--burnt-orange)",
         terracotta: "var(--terracotta)",
+        sage: "var(--sage)",
       },
     },
   },
