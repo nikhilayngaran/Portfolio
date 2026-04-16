@@ -46,14 +46,16 @@ export default function IntroSection() {
           >
             <p className="text-lg leading-relaxed" style={{ color: "var(--espresso)", opacity: 0.75 }}>
               I'm a Brand Strategist and Creative Marketer with a background in design and innovation.
-              I work for brands in knowing and analysing the real problem first. The real value exchange
-              between a brand and their consumers happen only when the brand is able to analyse and identify
-              itself first and knowing who they would want to exchange value with effective communication.
-              It is not about reaching how many people, rather it is about reaching the right people,
-              I have always believed. I have previously worked in India and France with brands that want
-              to really make a difference. Currently pursuing an MSc in Innovation and Entrepreneurship
-              from Grenoble Ecole de Management which was a very passionate study for me. Luckily,
-              I am open to work seeking a 4–6 month fin d'études internship.
+              My work starts where most agencies skip straight past figuring out what the real problem
+              actually is.
+              <br /><br />
+              A brand can only build a meaningful relationship with its audience after it understands
+              what it stands for. That's not reach, that's resonance. I've always cared more about
+              finding the right people than chasing numbers.
+              <br /><br />
+              I've worked with brands in India and France that wanted more than visibility. Currently
+              finishing an MSc in Innovation and Entrepreneurship at Grenoble École de Management,
+              and looking for a 4–6 month fin d'études internship from April 2026.
             </p>
           </motion.div>
 
