@@ -29,9 +29,6 @@ export default function Works() {
               <h2 className="text-5xl md:text-6xl font-bold text-black tracking-tight leading-none">
                 Projects
               </h2>
-              <span className="text-sm text-black/30 tracking-widest uppercase">
-                {String(projects.length).padStart(2, "0")} total
-              </span>
             </div>
           </motion.div>
 
@@ -50,42 +47,27 @@ export default function Works() {
                 onClick={() => setSelected(project)}
                 className="group w-full text-left border-b border-black/10 py-10 grid grid-cols-12 gap-6 items-center cursor-pointer hover:bg-black/[0.02] transition-colors duration-300 px-2 -mx-2 rounded-sm"
               >
-                {/* Number */}
-                <span className="col-span-1 text-[11px] text-black/30 tracking-widest tabular-nums">
-                  {project.number}
-                </span>
+                {/* Logo */}
+                <div className="col-span-1 flex items-center">
+                  {project.clientLogo ? (
+                    <img
+                      src={project.clientLogo}
+                      alt={project.client}
+                      className="w-9 h-9 object-contain grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                    />
+                  ) : (
+                    <div className="w-9 h-9" />
+                  )}
+                </div>
 
                 {/* Title + Client */}
-                <div className="col-span-6">
+                <div className="col-span-8">
                   <h3 className="text-[22px] font-semibold text-black tracking-tight mb-2">
                     {project.title}
                   </h3>
                   <p className="text-[13px] text-black/40 leading-relaxed">
                     {project.client}
                   </p>
-                </div>
-
-                {/* Logo — hidden by default, reveals on hover */}
-                <div className="col-span-2 flex items-center justify-center">
-                  {project.clientLogo ? (
-                    <div className="relative w-16 h-16 flex items-center justify-center">
-                      {/* Inverted state (default) */}
-                      <img
-                        src={project.clientLogo}
-                        alt={project.client}
-                        className="absolute inset-0 w-full h-full object-contain transition-all duration-500 ease-in-out opacity-20 grayscale group-hover:opacity-0"
-                        style={{ filter: "grayscale(1)" }}
-                      />
-                      {/* Color state (on hover) */}
-                      <img
-                        src={project.clientLogo}
-                        alt={project.client}
-                        className="absolute inset-0 w-full h-full object-contain transition-all duration-500 ease-in-out opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100"
-                      />
-                    </div>
-                  ) : (
-                    <div className="w-16 h-16" />
-                  )}
                 </div>
 
                 {/* Tags */}
