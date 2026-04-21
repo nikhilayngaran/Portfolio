@@ -64,7 +64,7 @@ export default function NeedSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           Not every brief is the same. Whether you need a full brand strategy
-          or just someone to make sense of the noise &mdash; let&apos;s find the right fit.
+          or just someone to make sense of the noise. Let&apos;s find the right fit.
         </motion.p>
 
         {/* Pills */}

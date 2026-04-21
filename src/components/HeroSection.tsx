@@ -58,8 +58,7 @@ export default function HeroSection() {
               Brand Strategist · Creative Marketer
             </p>
             <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.45)" }}>
-              I work with brands in India and France that want more than visibility —
-              they want resonance.
+              I work with brands in India and France that want more than visibility. They want resonance.
             </p>
           </motion.div>
 

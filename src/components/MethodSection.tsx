@@ -15,12 +15,12 @@ const steps = [
   {
     number: "02",
     label: "Position",
-    body: "Find the angle no one else owns. I define what makes you distinct, who you\u2019re for, and what story your brand needs to tell \u2014 then build the strategic foundation everything else runs on.",
+    body: "Find the angle no one else owns. I define what makes you distinct, who you're for, and what story your brand needs to tell. Then build the strategic foundation everything else runs on.",
   },
   {
     number: "03",
     label: "Activate",
-    body: "Turn strategy into content, identity, and community that moves people. This is where the work lands \u2014 in feeds, in rooms, in growth numbers.",
+    body: "Turn strategy into content, identity, and community that moves people. This is where the work lands: in feeds, in rooms, in growth numbers.",
   },
 ]
 
@@ -132,7 +132,7 @@ export default function MethodSection() {
                 className="text-[11px] tracking-[0.2em] uppercase font-medium"
                 style={{ color: "rgba(255,255,255,0.35)" }}
               >
-                &mdash; Nikil Ayngaran Pandian
+                Nikil Ayngaran Pandian
               </p>
             </div>
           </motion.div>

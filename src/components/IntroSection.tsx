@@ -42,7 +42,7 @@ export default function IntroSection() {
         >
           <p className="text-xl md:text-2xl leading-relaxed mb-7" style={{ color: "var(--espresso)" }}>
             I&apos;m a Brand Strategist and Creative Marketer with a background in design and innovation.
-            My work starts where most agencies skip straight past &mdash; figuring out what the real problem actually is.
+            My work starts where most agencies skip straight past: figuring out what the real problem actually is.
           </p>
           <p className="text-xl md:text-2xl leading-relaxed" style={{ color: "var(--espresso)", opacity: 0.65 }}>
             A brand can only build a meaningful relationship with its audience after it understands

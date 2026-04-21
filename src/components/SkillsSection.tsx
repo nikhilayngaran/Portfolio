@@ -9,7 +9,7 @@ const capabilities = [
   {
     number: "01",
     title: "Brand Strategy & Positioning",
-    body: "I help you find what you actually stand for \u2014 the position that is yours and no one else\u2019s \u2014 and build everything else on that foundation.",
+    body: "I help you find what you actually stand for, the position that is yours and no one else's, and build everything else on that foundation.",
   },
   {
     number: "02",
@@ -29,7 +29,7 @@ const capabilities = [
   {
     number: "05",
     title: "Social Media Marketing",
-    body: "Platform-native, not platform-generic. I create for the scroll, the feed, and the moment \u2014 not a repurposed newsletter.",
+    body: "Platform-native, not platform-generic. I create for the scroll, the feed, and the moment. Not a repurposed newsletter.",
   },
   {
     number: "06",
@@ -39,7 +39,7 @@ const capabilities = [
   {
     number: "07",
     title: "Sustainability Marketing",
-    body: "I help you set your impact story in a way that actually lands \u2014 turning your values into a brand advantage people trust, not just a badge you wear.",
+    body: "I help you set your impact story in a way that actually lands. Turning your values into a brand advantage people trust, not just a badge you wear.",
   },
   {
     number: "08",

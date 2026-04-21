@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import HeroSection from "@/components/HeroSection";
+import ScrollyCanvas from "@/components/ScrollyCanvas";
 import IntroSection from "@/components/IntroSection";
 import Works from "@/components/Works";
 import MethodSection from "@/components/MethodSection";
@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <main className="min-h-screen" style={{ backgroundColor: "#0a0a0a" }}>
       <Navbar />
-      <HeroSection />
+      <ScrollyCanvas />
       <IntroSection />
       <Works />
       <MethodSection />

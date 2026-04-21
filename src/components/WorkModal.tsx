@@ -112,21 +112,29 @@ export default function WorkModal({
               </div>
             </div>
 
-            {/* Objective */}
-            <CaseSection label="Objective" accent={project.accent} isDark={isDark}>
-              <p className="text-[15px] leading-[1.9]" style={{ color: isDark ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.7)" }}>
-                {project.objective}
-              </p>
-              {visuals.afterObjective}
-            </CaseSection>
+            {/* Objective — hidden when empty and no visual */}
+            {(project.objective || visuals.afterObjective) && (
+              <CaseSection label="Objective" accent={project.accent} isDark={isDark}>
+                {project.objective && (
+                  <p className="text-[15px] leading-[1.9]" style={{ color: isDark ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.7)" }}>
+                    {project.objective}
+                  </p>
+                )}
+                {visuals.afterObjective}
+              </CaseSection>
+            )}
 
-            {/* Analysis */}
-            <CaseSection label="Analysis" accent={project.accent} isDark={isDark}>
-              <p className="text-[15px] leading-[1.9]" style={{ color: isDark ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.7)" }}>
-                {project.analysis}
-              </p>
-              {visuals.afterAnalysis}
-            </CaseSection>
+            {/* Analysis — hidden when empty and no visual */}
+            {(project.analysis || visuals.afterAnalysis) && (
+              <CaseSection label="Analysis" accent={project.accent} isDark={isDark}>
+                {project.analysis && (
+                  <p className="text-[15px] leading-[1.9]" style={{ color: isDark ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.7)" }}>
+                    {project.analysis}
+                  </p>
+                )}
+                {visuals.afterAnalysis}
+              </CaseSection>
+            )}
 
             {/* Competition (optional) */}
             {project.competition && (
@@ -138,43 +146,45 @@ export default function WorkModal({
               </CaseSection>
             )}
 
-            {/* Recommendations */}
-            <CaseSection label="Recommendations" accent={project.accent} isDark={isDark}>
-              {visuals.replaceRecommendations ? (
-                visuals.replaceRecommendations
-              ) : (
-                <>
-                  {project.recommendations.intro && (
-                    <p className="text-[11px] tracking-[0.25em] uppercase mb-8" style={{ color: textMuted }}>
-                      {project.recommendations.intro}
-                    </p>
-                  )}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {project.recommendations.pillars.map((pillar, idx) => (
-                      <div
-                        key={idx}
-                        className="border-t-2 pt-5"
-                        style={{
-                          borderTopColor:
-                            idx < 2 ? project.accent + "66" : borderColor,
-                        }}
-                      >
-                        <p className="text-[11px] tracking-widest uppercase mb-2" style={{ color: textMuted }}>
-                          {String(idx + 1).padStart(2, "0")}
-                        </p>
-                        <p className="text-[15px] font-semibold mb-3" style={{ color: textPrimary }}>
-                          {pillar.title}
-                        </p>
-                        <p className="text-[13px] leading-relaxed" style={{ color: textSecondary }}>
-                          {pillar.body}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </>
-              )}
-              {visuals.afterRecommendations}
-            </CaseSection>
+            {/* Recommendations — hidden when nothing to show */}
+            {(visuals.replaceRecommendations || visuals.afterRecommendations || project.recommendations.pillars.length > 0) && (
+              <CaseSection label="Recommendations" accent={project.accent} isDark={isDark}>
+                {visuals.replaceRecommendations ? (
+                  visuals.replaceRecommendations
+                ) : (
+                  <>
+                    {project.recommendations.intro && (
+                      <p className="text-[11px] tracking-[0.25em] uppercase mb-8" style={{ color: textMuted }}>
+                        {project.recommendations.intro}
+                      </p>
+                    )}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      {project.recommendations.pillars.map((pillar, idx) => (
+                        <div
+                          key={idx}
+                          className="border-t-2 pt-5"
+                          style={{
+                            borderTopColor:
+                              idx < 2 ? project.accent + "66" : borderColor,
+                          }}
+                        >
+                          <p className="text-[11px] tracking-widest uppercase mb-2" style={{ color: textMuted }}>
+                            {String(idx + 1).padStart(2, "0")}
+                          </p>
+                          <p className="text-[15px] font-semibold mb-3" style={{ color: textPrimary }}>
+                            {pillar.title}
+                          </p>
+                          <p className="text-[13px] leading-relaxed" style={{ color: textSecondary }}>
+                            {pillar.body}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </>
+                )}
+                {visuals.afterRecommendations}
+              </CaseSection>
+            )}
 
             {/* Skills */}
             <CaseSection label="Skills Demonstrated" accent={project.accent} isDark={isDark}>

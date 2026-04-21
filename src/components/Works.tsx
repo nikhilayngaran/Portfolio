@@ -76,7 +76,7 @@ export default function Works() {
                 </div>
 
                 {/* Tags / Preview panel */}
-                <div className="relative z-10 shrink-0 w-[280px] hidden md:block">
+                <div className="relative z-10 shrink-0 w-[200px] hidden md:block" style={{ minHeight: 64 }}>
                   {/* Normal tags */}
                   <motion.div
                     className="flex flex-wrap gap-2 justify-end"
@@ -93,31 +93,46 @@ export default function Works() {
                     ))}
                   </motion.div>
 
-                  {/* Preview card */}
+                  {/* Preview card — fixed height so layout never collapses */}
                   <AnimatePresence>
                     {hovered === project.id && (
                       <motion.div
-                        className="absolute inset-0 rounded-lg flex flex-col justify-between p-4"
-                        style={{ backgroundColor: "#111111" }}
+                        className="absolute inset-0 rounded-lg overflow-hidden"
+                        style={{ backgroundColor: "#111111", minHeight: 64 }}
                         initial={{ opacity: 0, scale: 0.97 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.97 }}
                         transition={{ duration: 0.2, ease: "easeOut" }}
                       >
-                        <div className="flex items-start justify-between">
+                        {/* Accent top bar */}
+                        <div
+                          className="absolute top-0 left-0 right-0 h-[2px]"
+                          style={{ backgroundColor: project.accent }}
+                        />
+
+                        {/* Content — padded, stacked */}
+                        <div className="h-full flex flex-col justify-between p-4 pt-5">
+                          {/* Number */}
                           <span
                             className="text-[9px] tracking-[0.22em] uppercase font-bold"
-                            style={{ color: "#D4622A" }}
+                            style={{ color: `${project.accent}90` }}
                           >
-                            Project Preview
+                            {project.number}
                           </span>
-                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#D4622A" strokeWidth="2.5" strokeLinecap="round">
-                            <path d="M7 17L17 7M7 7h10v10" />
-                          </svg>
+
+                          {/* View Project + arrow */}
+                          <div className="flex items-center justify-between">
+                            <p
+                              className="font-bold text-[13px] leading-tight uppercase tracking-tight"
+                              style={{ color: "#ffffff" }}
+                            >
+                              View Project
+                            </p>
+                            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke={project.accent} strokeWidth="2.5" strokeLinecap="round">
+                              <path d="M7 17L17 7M7 7h10v10" />
+                            </svg>
+                          </div>
                         </div>
-                        <p className="text-white font-bold text-[15px] leading-tight uppercase tracking-tight mt-2">
-                          {project.title}
-                        </p>
                       </motion.div>
                     )}
                   </AnimatePresence>
