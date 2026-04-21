@@ -7,12 +7,13 @@ import WorkModal from "./WorkModal"
 
 export default function Works() {
   const [selected, setSelected] = useState<Project | null>(null)
+  const [hovered, setHovered] = useState<string | null>(null)
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-60px" })
 
   return (
     <>
-      <section ref={ref} className="bg-[#f2f0eb] py-32 px-6 md:px-20">
+      <section ref={ref} id="work" className="py-24 md:py-32 px-8 md:px-20" style={{ backgroundColor: "#f5f2ed" }}>
         <div className="max-w-5xl mx-auto">
 
           {/* Header */}
@@ -20,16 +21,14 @@ export default function Works() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="mb-20"
+            className="mb-16"
           >
-            <p className="text-[11px] tracking-[0.35em] text-black/40 uppercase mb-6">
+            <p className="text-[11px] tracking-[0.35em] text-black/40 uppercase mb-5 font-medium">
               Selected Works
             </p>
-            <div className="flex items-end justify-between">
-              <h2 className="text-5xl md:text-6xl font-bold text-black tracking-tight leading-none">
-                Projects
-              </h2>
-            </div>
+            <h2 className="text-5xl md:text-7xl font-bold text-black tracking-tight leading-none uppercase">
+              Selected<br />Works
+            </h2>
           </motion.div>
 
           {/* Divider */}
@@ -41,46 +40,89 @@ export default function Works() {
               key={project.id}
               initial={{ opacity: 0, y: 16 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 + idx * 0.1 }}
+              transition={{ duration: 0.5, delay: 0.08 + idx * 0.08 }}
             >
               <button
                 onClick={() => setSelected(project)}
-                className="group w-full text-left border-b border-black/10 py-10 grid grid-cols-12 gap-6 items-center cursor-pointer hover:bg-black/[0.02] transition-colors duration-300 px-2 -mx-2 rounded-sm"
+                onMouseEnter={() => setHovered(project.id)}
+                onMouseLeave={() => setHovered(null)}
+                className="group relative w-full text-left border-b border-black/10 py-8 md:py-10 flex items-center gap-6 cursor-pointer px-2 -mx-2 overflow-hidden"
               >
-                {/* Logo */}
-                <div className="col-span-1 flex items-center">
-                  {project.clientLogo ? (
-                    <img
-                      src={project.clientLogo}
-                      alt={project.client}
-                      className="w-9 h-9 object-contain grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
-                    />
-                  ) : (
-                    <div className="w-9 h-9" />
-                  )}
-                </div>
+                {/* Hover bg */}
+                <div
+                  className="absolute inset-0 transition-opacity duration-300"
+                  style={{
+                    backgroundColor: "rgba(0,0,0,0.02)",
+                    opacity: hovered === project.id ? 1 : 0,
+                  }}
+                />
+
+                {/* Number */}
+                <span
+                  className="relative z-10 text-[13px] font-bold tabular-nums shrink-0 w-8 transition-colors duration-300"
+                  style={{ color: hovered === project.id ? "#D4622A" : "rgba(0,0,0,0.25)" }}
+                >
+                  {project.number}
+                </span>
 
                 {/* Title + Client */}
-                <div className="col-span-8">
-                  <h3 className="text-[22px] font-semibold text-black tracking-tight mb-2">
+                <div className="relative z-10 flex-1 min-w-0">
+                  <h3 className="text-[20px] md:text-[24px] font-semibold text-black tracking-tight mb-1 transition-colors duration-300 group-hover:text-black">
                     {project.title}
                   </h3>
-                  <p className="text-[13px] text-black/40 leading-relaxed">
+                  <p className="text-[13px] text-black/40 truncate">
                     {project.client}
                   </p>
                 </div>
 
-                {/* Tags */}
-                <div className="col-span-3 flex flex-wrap gap-2 justify-end">
-                  {project.tags.slice(0, 3).map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-[11px] px-3 py-1 rounded-full border border-black/15 text-black/50 group-hover:border-black/30 group-hover:text-black/70 transition-all duration-300"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                {/* Tags / Preview panel */}
+                <div className="relative z-10 shrink-0 w-[280px] hidden md:block">
+                  {/* Normal tags */}
+                  <motion.div
+                    className="flex flex-wrap gap-2 justify-end"
+                    animate={{ opacity: hovered === project.id ? 0 : 1 }}
+                    transition={{ duration: 0.18 }}
+                  >
+                    {project.tags.slice(0, 3).map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-[10px] px-3 py-1 rounded-full border border-black/15 text-black/45 whitespace-nowrap"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </motion.div>
+
+                  {/* Preview card */}
+                  <AnimatePresence>
+                    {hovered === project.id && (
+                      <motion.div
+                        className="absolute inset-0 rounded-lg flex flex-col justify-between p-4"
+                        style={{ backgroundColor: "#111111" }}
+                        initial={{ opacity: 0, scale: 0.97 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.97 }}
+                        transition={{ duration: 0.2, ease: "easeOut" }}
+                      >
+                        <div className="flex items-start justify-between">
+                          <span
+                            className="text-[9px] tracking-[0.22em] uppercase font-bold"
+                            style={{ color: "#D4622A" }}
+                          >
+                            Project Preview
+                          </span>
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#D4622A" strokeWidth="2.5" strokeLinecap="round">
+                            <path d="M7 17L17 7M7 7h10v10" />
+                          </svg>
+                        </div>
+                        <p className="text-white font-bold text-[15px] leading-tight uppercase tracking-tight mt-2">
+                          {project.title}
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
+
               </button>
             </motion.div>
           ))}
