@@ -11,6 +11,8 @@ import {
 import {
   LindtCarbonAudit,
   LindtPillarCards,
+  LindtRoadmap,
+  LindtSoWhat,
   LindtBenchmarkStrip,
 } from "./LindtVisuals"
 
@@ -64,7 +66,7 @@ export function getProjectVisuals(id: string): ProjectVisualSlots {
   if (id === "greening-the-feed") {
     return {
       afterAnalysis: <LindtCarbonAudit />,
-      replaceRecommendations: <LindtPillarCards />,
+      replaceRecommendations: <><LindtPillarCards /><LindtRoadmap /><LindtSoWhat /></>,
       afterRecommendations: <LindtBenchmarkStrip />,
     }
   }

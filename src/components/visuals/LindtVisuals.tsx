@@ -107,26 +107,26 @@ const pillars = [
   {
     num: "01",
     icon: BarChart2,
-    title: "Track & Optimise Data",
-    desc: "Measure carbon across ad impressions, data centres, supply chain partners, and geographic delivery patterns. Align with Lindt's Scope 3 data commitments.",
+    title: "Measure It",
+    desc: "Track carbon across ad impressions, data centres, supply chain partners, and geographic delivery patterns. Without a baseline, there is no strategy. Align with Lindt's existing Scope 3 data commitments to avoid duplicating effort.",
   },
   {
     num: "02",
     icon: Users,
-    title: "Sustainable Internal Mindset",
-    desc: "Sustainability KPIs for marketing teams, performance reviews tied to carbon reduction, and rewards for employees who reduce advertising emissions footprint.",
+    title: "Fix It",
+    desc: "Reduce programmatic waste by auditing the ad supply chain with Scope3. Migrate to green hosting. Shift budget toward lower-energy formats and direct publisher deals over open exchanges.",
   },
   {
     num: "03",
     icon: Lightbulb,
-    title: "Intrapreneurial Mindset",
-    desc: "Annual hackathon for employees to pitch and pilot green marketing campaigns, drawing on benchmarks from Mars and Unilever's Sustainable Living Lab.",
+    title: "Embed It",
+    desc: "Introduce sustainability KPIs for marketing teams. Tie performance reviews to carbon reduction targets. Reward teams that reduce emissions through in-house content and employee advocacy rather than high-energy external channels.",
   },
   {
     num: "04",
     icon: Megaphone,
-    title: "Empower Internal Voices",
-    desc: "Shift toward in-house content production and employee advocacy to reduce dependence on high-energy external advertising channels.",
+    title: "Communicate It",
+    desc: "Once reductions are measurable and verified, build a brand narrative around them. Publish carbon credentials. Target eco-conscious consumers, retail partners facing their own Scope 3 pressure, and talent who expect purpose from an employer.",
   },
 ]
 
@@ -165,22 +165,208 @@ const benchmarks = [
   {
     stat: "−25%",
     company: "Dentsu × Nestlé",
-    desc: "reduction in digital ad emissions via Scope3 diagnostics-to-delivery model",
+    desc: "Reduction in digital ad emissions via Scope3's diagnostics-to-delivery model. Achieved over 18 months. Entry point: Scope3 platform audit of programmatic supply chain. Replicable by any brand with significant display spend.",
     color: "#C9A84C",
   },
   {
     stat: "−30%",
     company: "L'Oréal",
-    desc: "carbon footprint reduction, shortlisted for Ad Net Zero Best Practice Award",
+    desc: "Carbon footprint reduction, shortlisted for Ad Net Zero Best Practice Award. Driven by media agency partner mandates and green hosting migration over 2 years. Lindt's F-to-C target follows the same path.",
     color: "#C9A84C",
   },
   {
     stat: "+60%",
     company: "Mars",
-    desc: "revenue growth alongside -8% carbon emissions, proving sustainability does not mean sacrifice",
+    desc: "Revenue growth alongside -8% carbon emissions. Mars Sustainable in a Generation Plan launched 2017. The +60% revenue figure over 7 years shows the sustainability-growth tradeoff is a false dilemma for FMCG brands.",
     color: "#22c55e",
   },
 ]
+
+// ─── 18-Month Roadmap ─────────────────────────────────────────────────────────
+
+const phases = [
+  {
+    num: "01",
+    label: "Audit",
+    months: "Months 1–6",
+    desc: "Full Scope 3 digital carbon audit. Baseline lindt.fr against Scope3 diagnostics. Set measurable reduction targets.",
+  },
+  {
+    num: "02",
+    label: "Optimise",
+    months: "Months 7–12",
+    desc: "Reduce programmatic waste, shift to green hosting, pilot in-house content and employee advocacy channels.",
+  },
+  {
+    num: "03",
+    label: "Communicate",
+    months: "Months 13–18",
+    desc: "Translate reductions into brand narrative. Publish carbon credentials. Target premium and eco-conscious consumer segments.",
+  },
+]
+
+const GREEN = "#1B5E3B"
+const GOLD = "#C9A84C"
+
+export function LindtRoadmap() {
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, margin: "-40px" })
+
+  return (
+    <FadeUp>
+      <div ref={ref} className="mt-8">
+        <p className="text-[11px] tracking-[0.3em] uppercase mb-5" style={{ color: "rgba(255,255,255,0.3)" }}>
+          18-Month Roadmap
+        </p>
+
+        {/* Phase cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-0 rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(0,0,0,0.1)" }}>
+          {phases.map((phase, i) => (
+            <motion.div
+              key={phase.num}
+              className="relative p-6 flex flex-col"
+              style={{
+                backgroundColor: "#1a1a1a",
+                borderRight: i < 2 ? "1px solid rgba(255,255,255,0.07)" : "none",
+              }}
+              initial={{ opacity: 0, y: 16 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.1 + i * 0.12 }}
+            >
+              {/* Phase top bar */}
+              <div
+                className="absolute top-0 left-0 right-0 h-[2px]"
+                style={{ backgroundColor: i === 0 ? `${GREEN}60` : i === 1 ? `${GREEN}90` : GREEN }}
+              />
+              <span className="text-[10px] tracking-[0.25em] uppercase mb-3 font-bold" style={{ color: `${GREEN}` }}>
+                {phase.months}
+              </span>
+              <p className="text-white font-bold text-[17px] mb-3 uppercase tracking-tight">{phase.label}</p>
+              <p className="text-[12px] leading-relaxed" style={{ color: "rgba(255,255,255,0.42)" }}>
+                {phase.desc}
+              </p>
+              <div className="mt-4 text-[11px] font-bold tracking-[0.15em]" style={{ color: `${GREEN}70` }}>
+                Phase {phase.num}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Target card */}
+        <motion.div
+          className="mt-4 rounded-2xl p-6 flex items-center justify-between gap-6"
+          style={{ backgroundColor: "#1a1a1a", borderTop: `3px solid ${GREEN}` }}
+          initial={{ opacity: 0, y: 12 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.45 }}
+        >
+          <div>
+            <p className="text-[11px] tracking-[0.25em] uppercase mb-2 font-medium" style={{ color: GREEN }}>
+              Target
+            </p>
+            <p className="text-white font-bold text-[16px] md:text-[18px] leading-snug">
+              From F to C within 18 months.
+            </p>
+            <p className="text-[14px] mt-1" style={{ color: "rgba(255,255,255,0.5)" }}>
+              50% reduction in Scope 3 digital emissions.
+            </p>
+          </div>
+          {/* Rating badges */}
+          <div className="shrink-0 flex items-center gap-3">
+            <div
+              className="w-14 h-14 rounded-xl flex items-center justify-center text-[28px] font-bold"
+              style={{ backgroundColor: "rgba(34,197,94,0.15)", color: "#22c55e", border: "1px solid rgba(34,197,94,0.35)" }}
+            >
+              C
+            </div>
+            <div
+              className="w-14 h-14 rounded-xl flex items-center justify-center text-[28px] font-bold"
+              style={{ backgroundColor: "rgba(239,68,68,0.15)", color: "#ef4444", border: "1px solid rgba(239,68,68,0.3)", textDecoration: "line-through" }}
+            >
+              F
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </FadeUp>
+  )
+}
+
+// ─── So What? ─────────────────────────────────────────────────────────────────
+
+const audiences = [
+  {
+    title: "Eco-conscious consumers",
+    body: "Purchase decisions are increasingly shaped by brand environmental records. A published carbon rating differentiates Lindt in premium gifting occasions.",
+  },
+  {
+    title: "Retail & B2B partners",
+    body: "Supermarkets and distributors face their own Scope 3 reporting pressure. Lindt's credentials become a procurement advantage.",
+  },
+  {
+    title: "Talent & internal culture",
+    body: "Purpose-driven brands attract stronger candidates. Visible sustainability action reinforces Lindt's employer brand among Gen Z marketers.",
+  },
+]
+
+export function LindtSoWhat() {
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, margin: "-40px" })
+
+  return (
+    <FadeUp>
+      <div ref={ref} className="mt-8">
+        {/* Left-border accent block */}
+        <div
+          className="rounded-2xl p-7 mb-6"
+          style={{
+            backgroundColor: "#1a1a1a",
+            borderLeft: `4px solid ${GOLD}`,
+            borderTop: "1px solid rgba(255,255,255,0.07)",
+            borderRight: "1px solid rgba(255,255,255,0.07)",
+            borderBottom: "1px solid rgba(255,255,255,0.07)",
+          }}
+        >
+          <p className="text-[11px] tracking-[0.3em] uppercase mb-4 font-medium" style={{ color: `${GOLD}80` }}>
+            So What?
+          </p>
+          <p className="text-white font-bold text-[18px] md:text-[20px] leading-snug mb-4">
+            If Lindt achieves a C rating, what story can it tell and to whom?
+          </p>
+          <p className="text-[14px] leading-[1.85]" style={{ color: "rgba(255,255,255,0.5)" }}>
+            Greening the feed is not just an operational fix. For a premium chocolate brand whose equity rests on craft,
+            care, and provenance, a measurable reduction in digital carbon footprint becomes a credible brand signal.
+            Sustainability communicated at the right touchpoints, with data rather than claims, can deepen trust among
+            three distinct audiences.
+          </p>
+        </div>
+
+        {/* Audience cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {audiences.map((a, i) => (
+            <motion.div
+              key={a.title}
+              className="rounded-2xl p-6"
+              style={{ backgroundColor: "#1a1a1a", border: "1px solid rgba(255,255,255,0.06)" }}
+              initial={{ opacity: 0, y: 16 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
+            >
+              <div
+                className="w-6 h-[2px] rounded-full mb-4"
+                style={{ backgroundColor: GOLD }}
+              />
+              <p className="text-white font-semibold text-[14px] mb-3">{a.title}</p>
+              <p className="text-[12px] leading-relaxed" style={{ color: "rgba(255,255,255,0.42)" }}>
+                {a.body}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </FadeUp>
+  )
+}
 
 export function LindtBenchmarkStrip() {
   const ref = useRef(null)
@@ -189,7 +375,8 @@ export function LindtBenchmarkStrip() {
   return (
     <FadeUp>
       <div ref={ref} className="mt-8">
-        <p className="text-[11px] tracking-[0.3em] uppercase text-black/40 mb-4">Industry Benchmarks</p>
+        <p className="text-[11px] tracking-[0.3em] uppercase text-black/40 mb-1">Industry Benchmarks</p>
+        <p className="text-[13px] mb-5" style={{ color: "rgba(255,255,255,0.35)" }}>These are not aspirational references. Each has a replicable model Lindt can draw from directly.</p>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {benchmarks.map((b, i) => (
             <motion.div
