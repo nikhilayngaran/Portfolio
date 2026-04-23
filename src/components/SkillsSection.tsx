@@ -90,7 +90,7 @@ export default function SkillsSection() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.1 }}
         >
-          10 Capabilities
+          I can help you with
         </motion.h2>
 
         {/* Grid */}

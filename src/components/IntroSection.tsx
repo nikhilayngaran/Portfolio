@@ -72,6 +72,30 @@ export default function IntroSection() {
           ))}
         </motion.div>
 
+        {/* Download CV */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.45 }}
+          className="mt-8"
+        >
+          <a
+            href="/cv.pdf"
+            download
+            className="inline-flex items-center gap-3 text-[12px] tracking-[0.12em] uppercase font-bold px-6 py-3 transition-all duration-200"
+            style={{ backgroundColor: "#D4622A", color: "white" }}
+            onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#b84f1f")}
+            onMouseLeave={e => (e.currentTarget.style.backgroundColor = "#D4622A")}
+          >
+            Download CV
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+          </a>
+        </motion.div>
+
       </div>
     </section>
   )

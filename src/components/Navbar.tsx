@@ -26,7 +26,7 @@ export default function Navbar() {
           href="#"
           className="text-white font-bold text-sm tracking-[0.18em] uppercase hover:opacity-70 transition-opacity"
         >
-          NIKIL A.P.
+          NAP
         </a>
 
         {/* Nav */}
